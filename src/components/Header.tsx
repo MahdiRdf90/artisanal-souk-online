@@ -28,7 +28,7 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
 
   const getWelcomeText = () => {
     switch (language) {
-      case 'ar': return 'اتصال الحرف';
+      case 'ar': return 'ربط الحرف';
       case 'fr': return 'Craft Connect';
       case 'en': return 'Craft Connect';
     }
@@ -37,8 +37,8 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
   const getNavigationText = () => {
     switch (language) {
       case 'ar': return {
-        home: 'الرئيسية',
-        categories: 'الفئات',
+        home: 'الصفحة الرئيسية',
+        categories: 'الأصناف',
         artisans: 'الحرفيين',
         cart: 'السلة'
       };
@@ -66,14 +66,14 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
           {/* Logo */}
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
             <div className="w-12 h-12 bg-craft-orange rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">ح</span>
+              <span className="text-white font-bold text-xl">ر</span>
             </div>
             <div>
               <h1 className={`text-2xl font-bold text-heritage-brown ${language === 'ar' ? 'font-arabic' : ''}`}>
                 {getWelcomeText()}
               </h1>
               <p className="text-xs text-muted-foreground">
-                {language === 'ar' ? 'منصة الحرف الجزائرية' : 'Plateforme Artisanale Algérienne'}
+                {language === 'ar' ? 'منصة الحرف الجزائرية التقليدية' : 'Plateforme Artisanale Algérienne'}
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
 
             {/* Login Button */}
             <Button className="bg-craft-orange hover:bg-craft-orange/90 text-white px-6">
-              {language === 'ar' ? 'تسجيل الدخول' : language === 'fr' ? 'Connexion' : 'Login'}
+              {language === 'ar' ? 'دخول' : language === 'fr' ? 'Connexion' : 'Login'}
             </Button>
           </div>
         </div>

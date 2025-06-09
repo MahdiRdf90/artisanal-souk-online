@@ -11,8 +11,8 @@ const FeaturedProducts = () => {
       name: 'قفطان تقليدي مطرز',
       name_fr: 'Qaftan Traditionnel Brodé',
       price: 15000,
-      currency: 'DZD',
-      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400&h=400&fit=crop',
+      currency: 'دج',
+      image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=400&h=400&fit=crop&crop=center',
       artisan: 'فاطمة بن علي',
       artisan_fr: 'Fatima Ben Ali',
       region: 'تلمسان',
@@ -26,8 +26,8 @@ const FeaturedProducts = () => {
       name: 'إبريق نحاسي منقوش',
       name_fr: 'Théière en Cuivre Gravée',
       price: 8500,
-      currency: 'DZD',
-      image: 'https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?w=400&h=400&fit=crop',
+      currency: 'دج',
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
       artisan: 'محمد الحداد',
       artisan_fr: 'Mohamed El Haddad',
       region: 'قسنطينة',
@@ -41,8 +41,8 @@ const FeaturedProducts = () => {
       name: 'زربية قبائلية',
       name_fr: 'Tapis Kabyle Authentique',
       price: 25000,
-      currency: 'DZD',
-      image: 'https://images.unsplash.com/photo-1466442929976-97f336a657be?w=400&h=400&fit=crop',
+      currency: 'دج',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop&crop=center',
       artisan: 'عائشة أوراغ',
       artisan_fr: 'Aicha Ourag',
       region: 'بجاية',
@@ -56,8 +56,8 @@ const FeaturedProducts = () => {
       name: 'فخار بربري مزخرف',
       name_fr: 'Poterie Berbère Décorée',
       price: 4500,
-      currency: 'DZD',
-      image: 'https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?w=400&h=400&fit=crop',
+      currency: 'دج',
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&crop=center',
       artisan: 'يوسف أمزيان',
       artisan_fr: 'Youcef Ameziane',
       region: 'غرداية',
@@ -84,8 +84,8 @@ const FeaturedProducts = () => {
             Produits Vedettes
           </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Découvrez une sélection soigneusement choisie de créations artisanales 
-            authentiques, créées par nos artisans les plus talentueux.
+            اكتشف مجموعة مختارة بعناية من الإبداعات الحرفية 
+            الأصيلة، من صنع أمهر حرفيينا.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ const FeaturedProducts = () => {
                       جديد
                     </Badge>
                   )}
-                  <Badge variant="secondary" className="bg-white/90 text-heritage-brown">
+                  <Badge variant="secondary" className="bg-white/90 text-heritage-brown font-arabic">
                     {product.category}
                   </Badge>
                 </div>
@@ -143,7 +143,7 @@ const FeaturedProducts = () => {
                   <div className="flex items-center justify-between text-sm">
                     <div>
                       <p className="font-arabic text-heritage-brown">{product.artisan}</p>
-                      <p className="text-muted-foreground">{product.region_fr}</p>
+                      <p className="text-muted-foreground font-arabic">{product.region}</p>
                     </div>
                     <div className="text-right">
                       <div className="flex items-center space-x-1">
@@ -159,15 +159,15 @@ const FeaturedProducts = () => {
                       <span className="text-2xl font-bold text-heritage-brown font-arabic">
                         {formatPrice(product.price)}
                       </span>
-                      <span className="text-sm text-muted-foreground mr-2">
+                      <span className="text-sm text-muted-foreground mr-2 font-arabic">
                         {product.currency}
                       </span>
                     </div>
                     <Button 
                       size="sm" 
-                      className="bg-craft-orange hover:bg-craft-orange/90 text-white"
+                      className="bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic"
                     >
-                      إضافة للسلة
+                      أضف للسلة
                     </Button>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ const FeaturedProducts = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="border-heritage-brown text-heritage-brown hover:bg-heritage-brown hover:text-white px-8"
+            className="border-heritage-brown text-heritage-brown hover:bg-heritage-brown hover:text-white px-8 font-arabic"
           >
             عرض جميع المنتجات • Voir Tous les Produits
           </Button>

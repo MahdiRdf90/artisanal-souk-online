@@ -10,14 +10,14 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 rtl:space-x-reverse mb-6">
               <div className="w-12 h-12 bg-craft-orange rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">ح</span>
+                <span className="text-white font-bold text-xl">ر</span>
               </div>
               <div>
-                <h3 className="text-2xl font-bold font-arabic">اتصال الحرف</h3>
+                <h3 className="text-2xl font-bold font-arabic">ربط الحرف</h3>
                 <p className="text-white/80">Craft Connect</p>
               </div>
             </div>
-            <p className="text-white/80 mb-6 max-w-md">
+            <p className="text-white/80 mb-6 max-w-md font-arabic">
               منصة رقمية تربط الحرفيين الجزائريين بالعملاء المحليين والدوليين، 
               لتعزيز التراث الحرفي وتطوير الاقتصاد المحلي.
             </p>
@@ -30,9 +30,9 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="font-bold mb-4 font-arabic">روابط سريعة</h4>
-            <ul className="space-y-3 text-white/80">
-              <li><a href="#" className="hover:text-craft-orange transition-colors">الرئيسية</a></li>
-              <li><a href="#" className="hover:text-craft-orange transition-colors">فئات المنتجات</a></li>
+            <ul className="space-y-3 text-white/80 font-arabic">
+              <li><a href="#" className="hover:text-craft-orange transition-colors">الصفحة الرئيسية</a></li>
+              <li><a href="#" className="hover:text-craft-orange transition-colors">أصناف المنتجات</a></li>
               <li><a href="#" className="hover:text-craft-orange transition-colors">الحرفيين</a></li>
               <li><a href="#" className="hover:text-craft-orange transition-colors">من نحن</a></li>
               <li><a href="#" className="hover:text-craft-orange transition-colors">اتصل بنا</a></li>
@@ -65,14 +65,14 @@ const Footer = () => {
                   <span className="text-sm font-semibold">CCP</span>
                 </Card>
                 <Card className="p-3 bg-white/10 border-white/20">
-                  <span className="text-sm font-semibold">Cash</span>
+                  <span className="text-sm font-semibold font-arabic">دفع عند الاستلام</span>
                 </Card>
               </div>
             </div>
             
             <div className="mt-6 lg:mt-0">
-              <p className="text-white/60 text-sm">
-                &copy; 2025 Craft Connect. جميع الحقوق محفوظة
+              <p className="text-white/60 text-sm font-arabic">
+                &copy; 2025 ربط الحرف. جميع الحقوق محفوظة
               </p>
             </div>
           </div>

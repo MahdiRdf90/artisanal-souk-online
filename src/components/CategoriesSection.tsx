@@ -71,14 +71,14 @@ const CategoriesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-arabic text-heritage-brown mb-4">
-            فئات الحرف
+            أصناف الحرف
           </h2>
           <h3 className="text-2xl font-semibold text-clay-brown mb-4">
             Catégories d'Artisanat
           </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explorez notre riche collection d'artisanat traditionnel algérien, 
-            organisée par catégories pour faciliter votre découverte.
+            استكشف مجموعتنا الغنية من الحرف التقليدية الجزائرية، 
+            منظمة حسب الأصناف لتسهيل اكتشافك.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ const CategoriesSection = () => {
                         Découvrir →
                       </span>
                       <span className="text-sm font-medium text-heritage-brown group-hover:text-craft-orange transition-colors font-arabic">
-                        ← اكتشف
+                        ← استكشف
                       </span>
                     </div>
                   </div>
@@ -152,15 +152,15 @@ const CategoriesSection = () => {
               Vous êtes artisan ? Rejoignez notre plateforme
             </p>
             <p className="text-muted-foreground mb-6">
-              Partagez vos créations avec le monde entier et développez votre activité 
-              grâce à notre plateforme dédiée aux artisans algériens.
+              شارك إبداعاتك مع العالم كله وطور نشاطك 
+              من خلال منصتنا المخصصة للحرفيين الجزائريين.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button className="bg-craft-orange hover:bg-craft-orange/90 text-white px-8 py-3 rounded-lg font-arabic font-semibold transition-colors">
                 سجل كحرفي
               </button>
               <button className="border border-heritage-brown text-heritage-brown hover:bg-heritage-brown hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                En Savoir Plus
+                اعرف المزيد
               </button>
             </div>
           </div>
