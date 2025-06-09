@@ -1,8 +1,9 @@
 
 import { useState } from 'react';
-import { ShoppingCart, Bell, Settings, Home } from 'lucide-react';
+import { ShoppingCart, Bell, Settings, Home, User, Store } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   cartItemsCount?: number;
@@ -10,6 +11,7 @@ interface HeaderProps {
 
 const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
   const [language, setLanguage] = useState<'ar' | 'fr' | 'en'>('ar');
+  const navigate = useNavigate();
 
   const toggleLanguage = () => {
     const languages: ('ar' | 'fr' | 'en')[] = ['ar', 'fr', 'en'];
@@ -37,7 +39,7 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
   const getNavigationText = () => {
     switch (language) {
       case 'ar': return {
-        home: 'الصفحة الرئيسية',
+        home: 'الرئيسية',
         categories: 'الأصناف',
         artisans: 'الحرفيين',
         cart: 'السلة'
@@ -64,7 +66,7 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3 rtl:space-x-reverse">
+          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <div className="w-12 h-12 bg-craft-orange rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xl">ر</span>
             </div>
@@ -76,20 +78,20 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
                 {language === 'ar' ? 'منصة الحرف الجزائرية التقليدية' : 'Plateforme Artisanale Algérienne'}
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-            <a href="#" className={`flex items-center space-x-2 rtl:space-x-reverse text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
+            <Link to="/" className={`flex items-center space-x-2 rtl:space-x-reverse text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
               <Home size={18} />
               <span>{nav.home}</span>
-            </a>
-            <a href="#" className={`text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
+            </Link>
+            <Link to="/categories" className={`text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
               {nav.categories}
-            </a>
-            <a href="#" className={`text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
+            </Link>
+            <Link to="/artisans" className={`text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
               {nav.artisans}
-            </a>
+            </Link>
           </nav>
 
           {/* Actions */}
@@ -117,32 +119,49 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
             </Button>
 
             {/* Cart */}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="relative text-heritage-brown hover:bg-warm-beige"
-            >
-              <ShoppingCart size={20} />
-              {cartItemsCount > 0 && (
-                <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 bg-craft-orange text-xs">
-                  {cartItemsCount}
-                </Badge>
-              )}
-            </Button>
+            <Link to="/cart">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="relative text-heritage-brown hover:bg-warm-beige"
+              >
+                <ShoppingCart size={20} />
+                {cartItemsCount > 0 && (
+                  <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 bg-craft-orange text-xs">
+                    {cartItemsCount}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
 
-            {/* Settings */}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-heritage-brown hover:bg-warm-beige"
-            >
-              <Settings size={20} />
-            </Button>
+            {/* Profile */}
+            <Link to="/profile">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-heritage-brown hover:bg-warm-beige"
+              >
+                <User size={20} />
+              </Button>
+            </Link>
+
+            {/* Vendor Dashboard */}
+            <Link to="/vendor">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-heritage-brown hover:bg-warm-beige"
+              >
+                <Store size={20} />
+              </Button>
+            </Link>
 
             {/* Login Button */}
-            <Button className="bg-craft-orange hover:bg-craft-orange/90 text-white px-6">
-              {language === 'ar' ? 'دخول' : language === 'fr' ? 'Connexion' : 'Login'}
-            </Button>
+            <Link to="/login">
+              <Button className="bg-craft-orange hover:bg-craft-orange/90 text-white px-6">
+                {language === 'ar' ? 'دخول' : language === 'fr' ? 'Connexion' : 'Login'}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
