@@ -1,7 +1,6 @@
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import CraftScene3D from './CraftScene3D';
 
 const HeroSection = () => {
   return (
@@ -65,14 +64,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Visual Section with 3D Scene */}
-          <div className="relative space-y-6">
-            {/* Simulation 3D */}
-            <div className="mb-8">
-              <CraftScene3D />
-            </div>
-            
-            {/* Grille de cartes existante */}
+          {/* Visual Section */}
+          <div className="relative">
             <div className="grid grid-cols-2 gap-6">
               <Card className="p-6 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 animate-float">
                 <div className="aspect-square bg-gradient-to-br from-craft-orange to-copper-accent rounded-xl mb-4 flex items-center justify-center overflow-hidden">
