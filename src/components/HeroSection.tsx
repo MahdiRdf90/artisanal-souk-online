@@ -1,6 +1,6 @@
-
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import TraditionalBasket3D from './TraditionalBasket3D';
 
 const HeroSection = () => {
   return (
@@ -64,19 +64,13 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Visual Section with Traditional Crafts Image */}
+          {/* Visual Section with 3D Traditional Basket */}
           <div className="relative space-y-6">
-            {/* Traditional Crafts Showcase */}
+            {/* 3D Traditional Basket Showcase */}
             <div className="mb-8">
-              <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-xl">
-                <img 
-                  src="/lovable-uploads/3b322311-3a2f-49ba-aeb8-7c97e3d74d9e.png"
-                  alt="السلال التقليدية الجزائرية - Traditional Algerian Woven Baskets"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              <TraditionalBasket3D />
               <p className="text-center text-sm text-muted-foreground mt-2 font-arabic">
-                سلال تقليدية مزينة بنجوم ملونة • حرفة أصيلة من التراث الجزائري
+                اسحب للدوران • تكبير وتصغير • سلال تقليدية جزائرية ثلاثية الأبعاد
               </p>
             </div>
 
