@@ -67,8 +67,12 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <div className="w-12 h-12 bg-craft-orange rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">ر</span>
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/5ee30ec6-0441-4b0d-8c48-a6d12ed463d4.png" 
+                alt="Craft Connect Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
               <h1 className={`text-2xl font-bold text-heritage-brown ${language === 'ar' ? 'font-arabic' : ''}`}>

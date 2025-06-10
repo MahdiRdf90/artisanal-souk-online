@@ -1,5 +1,6 @@
 
 import { Card } from '@/components/ui/card';
+import { Facebook } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,8 +10,12 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 rtl:space-x-reverse mb-6">
-              <div className="w-12 h-12 bg-craft-orange rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">ر</span>
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/5ee30ec6-0441-4b0d-8c48-a6d12ed463d4.png" 
+                  alt="Craft Connect Logo"
+                  className="w-full h-full object-contain filter brightness-0 invert"
+                />
               </div>
               <div>
                 <h3 className="text-2xl font-bold font-arabic">ربط الحرف</h3>
@@ -35,7 +40,17 @@ const Footer = () => {
               <li><a href="#" className="hover:text-craft-orange transition-colors">أصناف المنتجات</a></li>
               <li><a href="#" className="hover:text-craft-orange transition-colors">الحرفيين</a></li>
               <li><a href="#" className="hover:text-craft-orange transition-colors">من نحن</a></li>
-              <li><a href="#" className="hover:text-craft-orange transition-colors">اتصل بنا</a></li>
+              <li>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61555947713712&sk=about" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-craft-orange transition-colors flex items-center space-x-2 rtl:space-x-reverse"
+                >
+                  <Facebook size={16} />
+                  <span>اتصل بنا</span>
+                </a>
+              </li>
             </ul>
           </div>
 
