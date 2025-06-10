@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import TraditionalBasket3D from './TraditionalBasket3D';
@@ -15,8 +16,16 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8 animate-fade-in-up">
+          {/* Left side - 3D Basket */}
+          <div className="order-2 lg:order-1">
+            <TraditionalBasket3D />
+            <p className="text-center text-sm text-muted-foreground mt-2 font-arabic">
+              اسحب للدوران • تكبير وتصغير • سلال تقليدية جزائرية ثلاثية الأبعاد
+            </p>
+          </div>
+
+          {/* Right side - Content */}
+          <div className="space-y-8 animate-fade-in-up order-1 lg:order-2">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold font-arabic text-heritage-brown leading-tight">
                 اكتشف عالم
@@ -62,19 +71,9 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">ولاية مغطاة</div>
               </div>
             </div>
-          </div>
 
-          {/* Visual Section with 3D Traditional Basket */}
-          <div className="relative space-y-6">
-            {/* 3D Traditional Basket Showcase */}
-            <div className="mb-8">
-              <TraditionalBasket3D />
-              <p className="text-center text-sm text-muted-foreground mt-2 font-arabic">
-                اسحب للدوران • تكبير وتصغير • سلال تقليدية جزائرية ثلاثية الأبعاد
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-6">
+            {/* Product cards moved below content */}
+            <div className="grid grid-cols-2 gap-6 pt-8">
               <Card className="p-6 bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 animate-float">
                 <div className="aspect-square bg-gradient-to-br from-craft-orange to-copper-accent rounded-xl mb-4 flex items-center justify-center overflow-hidden">
                   <img 
