@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -7,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Star, MapPin, Package, Users, Search, Filter } from 'lucide-react';
+import { Star, MapPin, Package, Users, Search, Filter, Facebook } from 'lucide-react';
 
 const Artisans = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,6 +14,28 @@ const Artisans = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const artisans = [
+    {
+      id: 'artisan-1',
+      name: 'الحرف الغذائية التقليدية',
+      name_fr: 'Artisanat Alimentaire Traditionnel',
+      owner: 'الحرفي المختص',
+      owner_fr: 'Artisan Spécialisé',
+      region: 'الجزائر',
+      region_fr: 'Alger',
+      category: 'حرف غذائية',
+      rating: 4.9,
+      reviews: 89,
+      products: 15,
+      followers: 456,
+      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop',
+      description: 'متخصص في إعداد المأكولات الجزائرية التقليدية والمعجنات الأصيلة بالطرق التراثية',
+      description_fr: 'Spécialisé dans la préparation de plats algériens traditionnels et pâtisseries authentiques',
+      established: '2020',
+      badges: ['تراث أصيل', 'مصنوع يدوياً', 'طبيعي'],
+      socialMedia: {
+        facebook: 'https://www.facebook.com/profile.php?id=100089482337990'
+      }
+    },
     {
       id: 'shop-1',
       name: 'ورشة فاطمة للقفطان',
@@ -185,86 +206,180 @@ const Artisans = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredArtisans.map((artisan) => (
-            <Link key={artisan.id} to={`/shop/${artisan.id}`}>
-              <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border-0 shadow-md hover:-translate-y-1 overflow-hidden">
-                <div className="relative">
-                  <img 
-                    src={artisan.image}
-                    alt={artisan.name_fr}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 space-x-2 rtl:space-x-reverse">
-                    {artisan.badges.map((badge, index) => (
-                      <Badge key={index} className="bg-craft-orange text-white font-arabic text-xs">
-                        {badge}
-                      </Badge>
-                    ))}
+            <div key={artisan.id}>
+              {artisan.id === 'artisan-1' ? (
+                <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border-0 shadow-md hover:-translate-y-1 overflow-hidden">
+                  <div className="relative">
+                    <img 
+                      src={artisan.image}
+                      alt={artisan.name_fr}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 space-x-2 rtl:space-x-reverse">
+                      {artisan.badges.map((badge, index) => (
+                        <Badge key={index} className="bg-craft-orange text-white font-arabic text-xs">
+                          {badge}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-xl font-bold font-arabic text-heritage-brown mb-1">
-                        {artisan.name}
-                      </h3>
-                      <p className="text-clay-brown font-medium mb-2">
-                        {artisan.name_fr}
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-xl font-bold font-arabic text-heritage-brown mb-1">
+                          {artisan.name}
+                        </h3>
+                        <p className="text-clay-brown font-medium mb-2">
+                          {artisan.name_fr}
+                        </p>
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                          <MapPin size={14} />
+                          <span className="font-arabic">{artisan.region}</span>
+                          <span>•</span>
+                          <span>{artisan.region_fr}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-1">
+                          <Star className="text-yellow-400 fill-current" size={16} />
+                          <span className="font-semibold">{artisan.rating}</span>
+                          <span className="text-sm text-muted-foreground">({artisan.reviews})</span>
+                        </div>
+                        <Badge variant="secondary" className="font-arabic">
+                          {artisan.category}
+                        </Badge>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4 text-center text-sm">
+                        <div>
+                          <div className="flex items-center justify-center mb-1">
+                            <Package size={16} className="text-craft-orange" />
+                          </div>
+                          <div className="font-semibold">{artisan.products}</div>
+                          <div className="text-xs text-muted-foreground font-arabic">منتج</div>
+                        </div>
+                        <div>
+                          <div className="flex items-center justify-center mb-1">
+                            <Users size={16} className="text-craft-orange" />
+                          </div>
+                          <div className="font-semibold">{artisan.followers}</div>
+                          <div className="text-xs text-muted-foreground font-arabic">متابع</div>
+                        </div>
+                        <div>
+                          <div className="flex items-center justify-center mb-1">
+                            <span className="text-craft-orange">📅</span>
+                          </div>
+                          <div className="font-semibold">{artisan.established}</div>
+                          <div className="text-xs text-muted-foreground font-arabic">التأسيس</div>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-muted-foreground font-arabic line-clamp-2">
+                        {artisan.description}
                       </p>
-                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                        <MapPin size={14} />
-                        <span className="font-arabic">{artisan.region}</span>
-                        <span>•</span>
-                        <span>{artisan.region_fr}</span>
+
+                      <div className="space-y-2">
+                        <a 
+                          href={artisan.socialMedia?.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-arabic py-2 px-4 rounded flex items-center justify-center space-x-2 rtl:space-x-reverse transition-colors"
+                        >
+                          <Facebook size={16} />
+                          <span>زيارة الصفحة</span>
+                        </a>
+                        <Button className="w-full bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic">
+                          تصفح المنتجات
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ) : (
+                <Link to={`/shop/${artisan.id}`}>
+                  <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border-0 shadow-md hover:-translate-y-1 overflow-hidden">
+                    <div className="relative">
+                      <img 
+                        src={artisan.image}
+                        alt={artisan.name_fr}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-4 left-4 space-x-2 rtl:space-x-reverse">
+                        {artisan.badges.map((badge, index) => (
+                          <Badge key={index} className="bg-craft-orange text-white font-arabic text-xs">
+                            {badge}
+                          </Badge>
+                        ))}
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-1">
-                        <Star className="text-yellow-400 fill-current" size={16} />
-                        <span className="font-semibold">{artisan.rating}</span>
-                        <span className="text-sm text-muted-foreground">({artisan.reviews})</span>
-                      </div>
-                      <Badge variant="secondary" className="font-arabic">
-                        {artisan.category}
-                      </Badge>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 text-center text-sm">
-                      <div>
-                        <div className="flex items-center justify-center mb-1">
-                          <Package size={16} className="text-craft-orange" />
+                    <CardContent className="p-6">
+                      <div className="space-y-4">
+                        <div>
+                          <h3 className="text-xl font-bold font-arabic text-heritage-brown mb-1">
+                            {artisan.name}
+                          </h3>
+                          <p className="text-clay-brown font-medium mb-2">
+                            {artisan.name_fr}
+                          </p>
+                          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                            <MapPin size={14} />
+                            <span className="font-arabic">{artisan.region}</span>
+                            <span>•</span>
+                            <span>{artisan.region_fr}</span>
+                          </div>
                         </div>
-                        <div className="font-semibold">{artisan.products}</div>
-                        <div className="text-xs text-muted-foreground font-arabic">منتج</div>
-                      </div>
-                      <div>
-                        <div className="flex items-center justify-center mb-1">
-                          <Users size={16} className="text-craft-orange" />
-                        </div>
-                        <div className="font-semibold">{artisan.followers}</div>
-                        <div className="text-xs text-muted-foreground font-arabic">متابع</div>
-                      </div>
-                      <div>
-                        <div className="flex items-center justify-center mb-1">
-                          <span className="text-craft-orange">📅</span>
-                        </div>
-                        <div className="font-semibold">{artisan.established}</div>
-                        <div className="text-xs text-muted-foreground font-arabic">التأسيس</div>
-                      </div>
-                    </div>
 
-                    <p className="text-sm text-muted-foreground font-arabic line-clamp-2">
-                      {artisan.description}
-                    </p>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-1">
+                            <Star className="text-yellow-400 fill-current" size={16} />
+                            <span className="font-semibold">{artisan.rating}</span>
+                            <span className="text-sm text-muted-foreground">({artisan.reviews})</span>
+                          </div>
+                          <Badge variant="secondary" className="font-arabic">
+                            {artisan.category}
+                          </Badge>
+                        </div>
 
-                    <Button className="w-full bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic">
-                      زيارة الورشة
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+                        <div className="grid grid-cols-3 gap-4 text-center text-sm">
+                          <div>
+                            <div className="flex items-center justify-center mb-1">
+                              <Package size={16} className="text-craft-orange" />
+                            </div>
+                            <div className="font-semibold">{artisan.products}</div>
+                            <div className="text-xs text-muted-foreground font-arabic">منتج</div>
+                          </div>
+                          <div>
+                            <div className="flex items-center justify-center mb-1">
+                              <Users size={16} className="text-craft-orange" />
+                            </div>
+                            <div className="font-semibold">{artisan.followers}</div>
+                            <div className="text-xs text-muted-foreground font-arabic">متابع</div>
+                          </div>
+                          <div>
+                            <div className="flex items-center justify-center mb-1">
+                              <span className="text-craft-orange">📅</span>
+                            </div>
+                            <div className="font-semibold">{artisan.established}</div>
+                            <div className="text-xs text-muted-foreground font-arabic">التأسيس</div>
+                          </div>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground font-arabic line-clamp-2">
+                          {artisan.description}
+                        </p>
+
+                        <Button className="w-full bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic">
+                          زيارة الورشة
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       </div>
