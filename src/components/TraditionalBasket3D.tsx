@@ -6,7 +6,7 @@ import { TextureLoader } from 'three';
 import * as THREE from 'three';
 
 const Basket3D = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef<THREE.Group>(null);
   const texture = useLoader(TextureLoader, '/lovable-uploads/3b322311-3a2f-49ba-aeb8-7c97e3d74d9e.png');
   
   useFrame((state) => {
