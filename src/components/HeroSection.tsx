@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import TraditionalBasket3D from './TraditionalBasket3D';
 
 const HeroSection = () => {
@@ -47,13 +48,97 @@ const HeroSection = () => {
               >
                 تصفح المنتجات
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-heritage-brown text-heritage-brown hover:bg-heritage-brown hover:text-white px-8 py-6 text-lg"
-              >
-                كن حرفياً
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="border-heritage-brown text-heritage-brown hover:bg-heritage-brown hover:text-white px-8 py-6 text-lg"
+                  >
+                    كن حرفياً
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold font-arabic text-heritage-brown text-center">
+                      اتفاقية الحرفي - منصة ربط الحرف
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-6 p-6">
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl font-semibold font-arabic text-craft-orange">
+                        شروط وأحكام انضمام الحرفيين
+                      </h3>
+                    </div>
+                    
+                    <div className="space-y-4 font-arabic text-right">
+                      <div>
+                        <h4 className="font-bold text-heritage-brown mb-2">1. التعريف والهدف:</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          منصة "ربط الحرف" هي منصة رقمية جزائرية تهدف إلى ربط الحرفيين التقليديين بالعملاء المحليين والدوليين، وتعزيز التراث الثقافي الجزائري من خلال التجارة الإلكترونية.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-heritage-brown mb-2">2. شروط الانضمام:</h4>
+                        <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                          <li>أن يكون المتقدم حرفياً مسجلاً أو يمارس حرفة تقليدية أصيلة</li>
+                          <li>تقديم وثائق تثبت الهوية والإقامة في الجزائر</li>
+                          <li>عرض صور وأوصاف دقيقة للمنتجات الحرفية</li>
+                          <li>الالتزام بمعايير الجودة والأصالة</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-heritage-brown mb-2">3. الالتزامات المالية:</h4>
+                        <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                          <li>عمولة 8% على كل عملية بيع ناجحة</li>
+                          <li>رسوم تحويل 2% للمدفوعات الإلكترونية</li>
+                          <li>لا توجد رسوم اشتراك شهرية أو سنوية</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-heritage-brown mb-2">4. حقوق والتزامات الحرفي:</h4>
+                        <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                          <li>حق عرض المنتجات وتحديد الأسعار</li>
+                          <li>الحصول على دعم تقني ومساعدة في التسويق</li>
+                          <li>الالتزام بمواعيد التسليم المحددة</li>
+                          <li>ضمان جودة المنتجات المعروضة</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-heritage-brown mb-2">5. حقوق الملكية الفكرية:</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          يحتفظ الحرفي بحقوق الملكية الفكرية لتصاميمه، وتلتزم المنصة بحماية هذه الحقوق وعدم استخدامها دون إذن مسبق.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-heritage-brown mb-2">6. فسخ الاتفاقية:</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          يحق لأي من الطرفين فسخ هذه الاتفاقية بإشعار مسبق مدته 30 يوماً، مع احترام الالتزامات القائمة تجاه العملاء.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="border-t pt-6 mt-6">
+                      <p className="text-center text-sm text-muted-foreground font-arabic">
+                        بالنقر على "موافق"، أنت توافق على جميع الشروط والأحكام المذكورة أعلاه
+                      </p>
+                      <div className="flex gap-4 justify-center mt-4">
+                        <Button className="bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic">
+                          موافق - تسجيل كحرفي
+                        </Button>
+                        <Button variant="outline" className="font-arabic">
+                          إلغاء
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
               <Button 
                 variant="outline" 
                 size="lg" 
