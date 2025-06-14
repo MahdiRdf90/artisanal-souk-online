@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -13,93 +14,185 @@ const Categories = () => {
 
   const mainCategories = [
     {
-      id: 'natural-crafts',
-      name_ar: 'حرف طبيعية',
-      name_fr: 'Artisanat Naturel',
+      id: '1',
+      name_ar: 'الحرف اليدوية المعتمدة على المواد الطبيعية',
+      name_fr: 'Artisanat Basé sur Matériaux Naturels',
       icon: '🌿',
       color: 'from-green-400 to-emerald-600',
       image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center',
       subcategories: [
-        { id: 'pottery', name_ar: 'فخار', name_fr: 'Poterie', count: 45, image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=150&fit=crop&crop=center' },
-        { id: 'wood', name_ar: 'خشب', name_fr: 'Bois', count: 32, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center' },
-        { id: 'stone', name_ar: 'حجر', name_fr: 'Pierre', count: 18, image: 'https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=200&h=150&fit=crop&crop=center' },
-        { id: 'leather', name_ar: 'جلد', name_fr: 'Cuir', count: 25, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center' },
-        { id: 'plants', name_ar: 'نباتات', name_fr: 'Plantes', count: 15, image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center' }
+        {
+          id: 'wood-crafts',
+          name_ar: 'الحرف الخشبية',
+          name_fr: 'Artisanat du Bois',
+          count: 45,
+          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          items: ['النقش على الخشب', 'صناعة الأثاث اليدوي', 'صناعة العرائس الخشبية', 'النحت الخشبي', 'صناعة الأقواس والسهام']
+        },
+        {
+          id: 'pottery-crafts',
+          name_ar: 'الحرف الطينية والفخارية',
+          name_fr: 'Poterie et Céramique',
+          count: 38,
+          image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=150&fit=crop&crop=center',
+          items: ['صناعة الفخار', 'صناعة الخزف', 'صناعة الطوب التقليدي', 'صناعة التماثيل الطينية']
+        },
+        {
+          id: 'stone-crafts',
+          name_ar: 'الحرف الحجرية',
+          name_fr: 'Artisanat de Pierre',
+          count: 25,
+          image: 'https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=200&h=150&fit=crop&crop=center',
+          items: ['النحت على الحجر', 'الفسيفساء', 'البناء التقليدي بالحجر']
+        },
+        {
+          id: 'plant-crafts',
+          name_ar: 'الحرف النباتية',
+          name_fr: 'Artisanat Végétal',
+          count: 22,
+          image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center',
+          items: ['الحصير والسلال من سعف النخيل', 'الحبال من ألياف جوز الهند أو القنب', 'الورق اليدوي من النباتات', 'الزهور المجففة والمضغوطة']
+        },
+        {
+          id: 'leather-crafts',
+          name_ar: 'الحرف الجلدية',
+          name_fr: 'Maroquinerie',
+          count: 15,
+          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          items: ['صناعة الأحذية التقليدية (البلغة، الصندل...)', 'الحقائب والمحافظ', 'الأحزمة', 'تغليف الكتب بالجلد']
+        }
       ]
     },
     {
-      id: 'textiles',
-      name_ar: 'نسيج وتطريز',
-      name_fr: 'Textile & Broderie',
+      id: '2',
+      name_ar: 'الحرف النسيجية والخياطة',
+      name_fr: 'Artisanat Textile et Couture',
       icon: '🧶',
       color: 'from-purple-400 to-indigo-600',
       image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=300&h=200&fit=crop&crop=center',
       subcategories: [
-        { id: 'qaftan', name_ar: 'قفطان', name_fr: 'Qaftan', count: 28, image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center' },
-        { id: 'carpets', name_ar: 'زرابي', name_fr: 'Tapis', count: 35, image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center' },
-        { id: 'embroidery', name_ar: 'تطريز', name_fr: 'Broderie', count: 42, image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center' },
-        { id: 'traditional-wear', name_ar: 'ملابس تقليدية', name_fr: 'Vêtements Traditionnels', count: 67, image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center' },
-        { id: 'fabrics', name_ar: 'أقمشة', name_fr: 'Tissus', count: 23, image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center' }
+        {
+          id: 'embroidery-weaving',
+          name_ar: 'التطريز والنسيج',
+          name_fr: 'Broderie et Tissage',
+          count: 55,
+          image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center',
+          items: ['التطريز اليدوي (فلسطيني، جزائري، مكسيكي...)', 'النسيج اليدوي (السدو، القماش الكشميري، الصوف...)', 'السجاد التقليدي (الزرابي الأمازيغية، البخارى، الكليم)', 'الكروشيه', 'الكانافا (نسيج شبكي)']
+        },
+        {
+          id: 'traditional-sewing',
+          name_ar: 'الخياطة والملابس التقليدية',
+          name_fr: 'Couture et Vêtements Traditionnels',
+          count: 43,
+          image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center',
+          items: ['خياطة الملابس التقليدية (القفطان، الكيمونو، الساري...)', 'تطريز الجلابيات والأوشحة', 'صناعة القبعات التقليدية']
+        }
       ]
     },
     {
-      id: 'jewelry',
-      name_ar: 'مجوهرات وزينة',
-      name_fr: 'Bijoux & Décoration',
+      id: '3',
+      name_ar: 'الحرف الزخرفية والتزيينية',
+      name_fr: 'Artisanat Décoratif et Ornemental',
       icon: '💎',
       color: 'from-pink-400 to-rose-600',
       image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=200&fit=crop&crop=center',
       subcategories: [
-        { id: 'silver-jewelry', name_ar: 'مجوهرات فضية', name_fr: 'Bijoux en Argent', count: 34, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center' },
-        { id: 'berber-jewelry', name_ar: 'مجوهرات أمازيغية', name_fr: 'Bijoux Berbères', count: 28, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center' },
-        { id: 'henna', name_ar: 'حناء', name_fr: 'Henné', count: 15, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center' },
-        { id: 'decorative', name_ar: 'زينة', name_fr: 'Décoration', count: 41, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center' },
-        { id: 'accessories', name_ar: 'إكسسوارات', name_fr: 'Accessoires', count: 22, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center' }
+        {
+          id: 'jewelry',
+          name_ar: 'المجوهرات',
+          name_fr: 'Bijouterie',
+          count: 34,
+          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          items: ['صناعة الحلي التقليدية', 'النقش على الفضة', 'التطعيم بالأحجار الكريمة', 'الخرز اليدوي']
+        },
+        {
+          id: 'decoration-painting',
+          name_ar: 'الزخرفة والرسم',
+          name_fr: 'Décoration et Peinture',
+          count: 28,
+          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          items: ['الزخرفة الإسلامية', 'المنمنمات', 'الرسم بالرمل', 'الرسم بالحناء']
+        },
+        {
+          id: 'dolls-ornaments',
+          name_ar: 'صناعة الدمى والزينة',
+          name_fr: 'Poupées et Ornements',
+          count: 25,
+          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          items: ['صناعة الدمى القماشية', 'التزيين الموسمي (عيدي، رمضاني...)']
+        }
       ]
     },
     {
-      id: 'metalwork',
-      name_ar: 'أشغال معدنية',
-      name_fr: 'Travaux Métalliques',
+      id: '4',
+      name_ar: 'الحرف المعدنية',
+      name_fr: 'Artisanat Métallique',
       icon: '🔨',
       color: 'from-amber-400 to-orange-600',
       image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop&crop=center',
       subcategories: [
-        { id: 'copper', name_ar: 'نحاس', name_fr: 'Cuivre', count: 56, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop&crop=center' },
-        { id: 'iron', name_ar: 'حديد', name_fr: 'Fer', count: 23, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop&crop=center' },
-        { id: 'lamps', name_ar: 'مصابيح', name_fr: 'Lampes', count: 34, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop&crop=center' },
-        { id: 'tools', name_ar: 'أدوات', name_fr: 'Outils', count: 18, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop&crop=center' },
-        { id: 'decorative-metal', name_ar: 'زينة معدنية', name_fr: 'Métal Décoratif', count: 29, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop&crop=center' }
+        {
+          id: 'metalwork',
+          name_ar: 'الأشغال المعدنية',
+          name_fr: 'Travaux Métalliques',
+          count: 76,
+          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop&crop=center',
+          items: ['الحدادة التقليدية', 'النقش على النحاس', 'صناعة الأدوات الزراعية', 'صناعة الأسلحة التقليدية', 'صناعة المصابيح المعدنية', 'صياغة المجوهرات الذهبية']
+        }
       ]
     },
     {
-      id: 'food-crafts',
-      name_ar: 'حرف غذائية',
-      name_fr: 'Artisanat Alimentaire',
+      id: '5',
+      name_ar: 'الحرف الغذائية التقليدية',
+      name_fr: 'Artisanat Alimentaire Traditionnel',
       icon: '🍯',
       color: 'from-yellow-400 to-amber-600',
       image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=200&fit=crop&crop=center',
       subcategories: [
-        { id: 'bread', name_ar: 'خبز', name_fr: 'Pain', count: 12, image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=150&fit=crop&crop=center' },
-        { id: 'sweets', name_ar: 'حلويات', name_fr: 'Pâtisseries', count: 45, image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=150&fit=crop&crop=center' },
-        { id: 'cheese', name_ar: 'جبن', name_fr: 'Fromage', count: 8, image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=150&fit=crop&crop=center' },
-        { id: 'preserves', name_ar: 'مربى', name_fr: 'Confitures', count: 23, image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=150&fit=crop&crop=center' },
-        { id: 'spices', name_ar: 'توابل', name_fr: 'Épices', count: 34, image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=150&fit=crop&crop=center' }
+        {
+          id: 'traditional-food',
+          name_ar: 'الصناعات الغذائية التقليدية',
+          name_fr: 'Industries Alimentaires Traditionnelles',
+          count: 65,
+          image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=150&fit=crop&crop=center',
+          items: ['صناعة الخبز التقليدي (الطابون، الملة، التنور)', 'الحلويات اليدوية (المقروط، البقلاوة، المانتي)', 'الجبن التقليدي', 'التوابل المطحونة يدويًا', 'المربى والمخللات المنزلية']
+        }
       ]
     },
     {
-      id: 'cosmetics',
-      name_ar: 'مستحضرات طبيعية',
-      name_fr: 'Cosmétiques Naturels',
+      id: '6',
+      name_ar: 'الحرف التجميلية والعطرية',
+      name_fr: 'Artisanat Cosmétique et Parfumerie',
       icon: '🌸',
       color: 'from-green-400 to-teal-600',
       image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=300&h=200&fit=crop&crop=center',
       subcategories: [
-        { id: 'soaps', name_ar: 'صابون', name_fr: 'Savons', count: 28, image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center' },
-        { id: 'oils', name_ar: 'زيوت', name_fr: 'Huiles', count: 22, image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center' },
-        { id: 'perfumes', name_ar: 'عطور', name_fr: 'Parfums', count: 15, image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center' },
-        { id: 'creams', name_ar: 'كريمات', name_fr: 'Crèmes', count: 18, image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center' },
-        { id: 'herbs', name_ar: 'أعشاب', name_fr: 'Herbes', count: 25, image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center' }
+        {
+          id: 'cosmetics-perfumes',
+          name_ar: 'المستحضرات التجميلية والعطرية',
+          name_fr: 'Cosmétiques et Parfums',
+          count: 54,
+          image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center',
+          items: ['صناعة الصابون الطبيعي', 'استخلاص الزيوت النباتية والعطرية', 'العطور التقليدية (مثل دهن العود، المسك)', 'مستحضرات تجميل طبيعية (من الأعشاب والطين)']
+        }
+      ]
+    },
+    {
+      id: '7',
+      name_ar: 'حرف فنية حديثة أو هجينة',
+      name_fr: 'Artisanat Artistique Moderne',
+      icon: '🎨',
+      color: 'from-indigo-400 to-purple-600',
+      image: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=200&fit=crop&crop=center',
+      subcategories: [
+        {
+          id: 'modern-arts',
+          name_ar: 'الفنون الحديثة والهجينة',
+          name_fr: 'Arts Modernes et Hybrides',
+          count: 43,
+          image: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=200&h=150&fit=crop&crop=center',
+          items: ['إعادة تدوير الزجاجات والبلاستيك', 'تصميم المنتجات من الكرتون المعاد', 'الطباعة على القماش', 'الريزن آرت (فن الإيبوكسي)', 'الشمع اليدوي', 'فن الكولاج', 'فن الموزاييك الزجاجي']
+        }
       ]
     }
   ];
@@ -143,12 +236,11 @@ const Categories = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {mainCategories.map((category) => (
                 <Link key={category.id} to={`/categories/${category.id}`}>
-                  <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border-0 shadow-md hover:-translate-y-1 overflow-hidden">
-                    <CardContent className="p-0">
-                      {/* Category Image */}
+                  <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border-0 shadow-md hover:-translate-y-1 overflow-hidden h-full">
+                    <CardContent className="p-0 h-full flex flex-col">
                       <div className="h-48 overflow-hidden">
                         <img 
                           src={category.image} 
@@ -157,16 +249,16 @@ const Categories = () => {
                         />
                       </div>
                       
-                      <div className={`bg-gradient-to-r ${category.color} p-6 text-white relative overflow-hidden`}>
+                      <div className={`bg-gradient-to-r ${category.color} p-6 text-white relative overflow-hidden flex-grow`}>
                         <div className="absolute top-0 right-0 text-6xl opacity-20 transform rotate-12">
                           {category.icon}
                         </div>
                         <div className="relative z-10">
                           <div className="text-4xl mb-3">{category.icon}</div>
-                          <h3 className="text-xl font-bold font-arabic mb-2">
+                          <h3 className="text-lg font-bold font-arabic mb-2 line-clamp-2">
                             {category.name_ar}
                           </h3>
-                          <p className="text-white/90 font-medium">
+                          <p className="text-white/90 font-medium text-sm line-clamp-2">
                             {category.name_fr}
                           </p>
                           <div className="mt-3">
@@ -176,18 +268,18 @@ const Categories = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="p-6">
+                      <div className="p-4">
                         <div className="space-y-2">
-                          <h4 className="font-semibold text-heritage-brown mb-3">الأقسام الفرعية:</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {category.subcategories.slice(0, 3).map((sub) => (
+                          <h4 className="font-semibold text-heritage-brown mb-3 text-sm">الأقسام الفرعية:</h4>
+                          <div className="flex flex-wrap gap-1">
+                            {category.subcategories.slice(0, 2).map((sub) => (
                               <Badge key={sub.id} variant="secondary" className="text-xs">
                                 {sub.name_ar}
                               </Badge>
                             ))}
-                            {category.subcategories.length > 3 && (
+                            {category.subcategories.length > 2 && (
                               <Badge variant="outline" className="text-xs">
-                                +{category.subcategories.length - 3} المزيد
+                                +{category.subcategories.length - 2} المزيد
                               </Badge>
                             )}
                           </div>
@@ -237,35 +329,50 @@ const Categories = () => {
 
               <div className={viewMode === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}>
                 {selectedCategory.subcategories.map((subcategory) => (
-                  <Link key={subcategory.id} to={`/categories/${categoryId}/${subcategory.id}`}>
-                    <Card className="hover:shadow-lg transition-shadow cursor-pointer overflow-hidden">
-                      <CardContent className="p-0">
-                        {/* Subcategory Image */}
-                        <div className="h-40 overflow-hidden">
-                          <img 
-                            src={subcategory.image} 
-                            alt={subcategory.name_ar}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          />
+                  <Card key={subcategory.id} className="hover:shadow-lg transition-shadow cursor-pointer overflow-hidden">
+                    <CardContent className="p-0">
+                      <div className="h-40 overflow-hidden">
+                        <img 
+                          src={subcategory.image} 
+                          alt={subcategory.name_ar}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      
+                      <div className="p-6">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="flex-1">
+                            <h3 className="text-lg font-bold font-arabic text-heritage-brown mb-1">
+                              {subcategory.name_ar}
+                            </h3>
+                            <p className="text-clay-brown mb-2">{subcategory.name_fr}</p>
+                            <p className="text-sm text-muted-foreground mb-3">
+                              {subcategory.count} منتج متوفر
+                            </p>
+                          </div>
+                          <ChevronRight className="text-craft-orange mt-1" size={20} />
                         </div>
                         
-                        <div className="p-6">
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <h3 className="text-lg font-bold font-arabic text-heritage-brown mb-1">
-                                {subcategory.name_ar}
-                              </h3>
-                              <p className="text-clay-brown mb-2">{subcategory.name_fr}</p>
-                              <p className="text-sm text-muted-foreground">
-                                {subcategory.count} منتج متوفر
-                              </p>
+                        {subcategory.items && (
+                          <div className="space-y-2">
+                            <h4 className="text-sm font-semibold text-heritage-brown">العناصر المتوفرة:</h4>
+                            <div className="flex flex-wrap gap-1">
+                              {subcategory.items.slice(0, 3).map((item, index) => (
+                                <Badge key={index} variant="outline" className="text-xs font-arabic">
+                                  {item}
+                                </Badge>
+                              ))}
+                              {subcategory.items.length > 3 && (
+                                <Badge variant="secondary" className="text-xs">
+                                  +{subcategory.items.length - 3} المزيد
+                                </Badge>
+                              )}
                             </div>
-                            <ChevronRight className="text-craft-orange" size={20} />
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
             </>
