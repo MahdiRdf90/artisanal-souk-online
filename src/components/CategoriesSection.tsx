@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +12,7 @@ const CategoriesSection = () => {
       icon: '🌿',
       color: 'from-green-400 to-emerald-600',
       count: 145,
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 2,
@@ -24,7 +23,7 @@ const CategoriesSection = () => {
       icon: '🧶',
       color: 'from-purple-400 to-indigo-600',
       count: 98,
-      image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=300&h=200&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 3,
@@ -46,7 +45,7 @@ const CategoriesSection = () => {
       icon: '🔨',
       color: 'from-amber-400 to-orange-600',
       count: 76,
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 5,
@@ -57,7 +56,7 @@ const CategoriesSection = () => {
       icon: '🍯',
       color: 'from-yellow-400 to-amber-600',
       count: 65,
-      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=200&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 6,
@@ -68,7 +67,7 @@ const CategoriesSection = () => {
       icon: '🌸',
       color: 'from-green-400 to-teal-600',
       count: 54,
-      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=300&h=200&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 7,
@@ -79,7 +78,7 @@ const CategoriesSection = () => {
       icon: '🎨',
       color: 'from-indigo-400 to-purple-600',
       count: 43,
-      image: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=200&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=200&fit=crop&crop=center'
     }
   ];
 

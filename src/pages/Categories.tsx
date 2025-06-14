@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -19,14 +18,14 @@ const Categories = () => {
       name_fr: 'Artisanat Basé sur Matériaux Naturels',
       icon: '🌿',
       color: 'from-green-400 to-emerald-600',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center',
       subcategories: [
         {
           id: 'wood-crafts',
           name_ar: 'الحرف الخشبية',
           name_fr: 'Artisanat du Bois',
           count: 45,
-          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop&crop=center',
           items: ['النقش على الخشب', 'صناعة الأثاث اليدوي', 'صناعة العرائس الخشبية', 'النحت الخشبي', 'صناعة الأقواس والسهام']
         },
         {
@@ -34,7 +33,7 @@ const Categories = () => {
           name_ar: 'الحرف الطينية والفخارية',
           name_fr: 'Poterie et Céramique',
           count: 38,
-          image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=300&h=200&fit=crop&crop=center',
           items: ['صناعة الفخار', 'صناعة الخزف', 'صناعة الطوب التقليدي', 'صناعة التماثيل الطينية']
         },
         {
@@ -42,7 +41,7 @@ const Categories = () => {
           name_ar: 'الحرف الحجرية',
           name_fr: 'Artisanat de Pierre',
           count: 25,
-          image: 'https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=300&h=200&fit=crop&crop=center',
           items: ['النحت على الحجر', 'الفسيفساء', 'البناء التقليدي بالحجر']
         },
         {
@@ -50,7 +49,7 @@ const Categories = () => {
           name_ar: 'الحرف النباتية',
           name_fr: 'Artisanat Végétal',
           count: 22,
-          image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop&crop=center',
           items: ['الحصير والسلال من سعف النخيل', 'الحبال من ألياف جوز الهند أو القنب', 'الورق اليدوي من النباتات', 'الزهور المجففة والمضغوطة']
         },
         {
@@ -58,7 +57,7 @@ const Categories = () => {
           name_ar: 'الحرف الجلدية',
           name_fr: 'Maroquinerie',
           count: 15,
-          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop&crop=center',
           items: ['صناعة الأحذية التقليدية (البلغة، الصندل...)', 'الحقائب والمحافظ', 'الأحزمة', 'تغليف الكتب بالجلد']
         }
       ]
@@ -69,14 +68,14 @@ const Categories = () => {
       name_fr: 'Artisanat Textile et Couture',
       icon: '🧶',
       color: 'from-purple-400 to-indigo-600',
-      image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=300&h=200&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop&crop=center',
       subcategories: [
         {
           id: 'embroidery-weaving',
           name_ar: 'التطريز والنسيج',
           name_fr: 'Broderie et Tissage',
           count: 55,
-          image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop&crop=center',
           items: ['التطريز اليدوي (فلسطيني، جزائري، مكسيكي...)', 'النسيج اليدوي (السدو، القماش الكشميري، الصوف...)', 'السجاد التقليدي (الزرابي الأمازيغية، البخارى، الكليم)', 'الكروشيه', 'الكانافا (نسيج شبكي)']
         },
         {
@@ -84,7 +83,7 @@ const Categories = () => {
           name_ar: 'الخياطة والملابس التقليدية',
           name_fr: 'Couture et Vêtements Traditionnels',
           count: 43,
-          image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=300&h=200&fit=crop&crop=center',
           items: ['خياطة الملابس التقليدية (القفطان، الكيمونو، الساري...)', 'تطريز الجلابيات والأوشحة', 'صناعة القبعات التقليدية']
         }
       ]
@@ -102,7 +101,7 @@ const Categories = () => {
           name_ar: 'المجوهرات',
           name_fr: 'Bijouterie',
           count: 34,
-          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=200&fit=crop&crop=center',
           items: ['صناعة الحلي التقليدية', 'النقش على الفضة', 'التطعيم بالأحجار الكريمة', 'الخرز اليدوي']
         },
         {
@@ -110,7 +109,7 @@ const Categories = () => {
           name_ar: 'الزخرفة والرسم',
           name_fr: 'Décoration et Peinture',
           count: 28,
-          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=300&h=200&fit=crop&crop=center',
           items: ['الزخرفة الإسلامية', 'المنمنمات', 'الرسم بالرمل', 'الرسم بالحناء']
         },
         {
@@ -118,7 +117,7 @@ const Categories = () => {
           name_ar: 'صناعة الدمى والزينة',
           name_fr: 'Poupées et Ornements',
           count: 25,
-          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=300&h=200&fit=crop&crop=center',
           items: ['صناعة الدمى القماشية', 'التزيين الموسمي (عيدي، رمضاني...)']
         }
       ]
@@ -129,14 +128,14 @@ const Categories = () => {
       name_fr: 'Artisanat Métallique',
       icon: '🔨',
       color: 'from-amber-400 to-orange-600',
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=300&h=200&fit=crop&crop=center',
       subcategories: [
         {
           id: 'metalwork',
           name_ar: 'الأشغال المعدنية',
           name_fr: 'Travaux Métalliques',
           count: 76,
-          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=300&h=200&fit=crop&crop=center',
           items: ['الحدادة التقليدية', 'النقش على النحاس', 'صناعة الأدوات الزراعية', 'صناعة الأسلحة التقليدية', 'صناعة المصابيح المعدنية', 'صياغة المجوهرات الذهبية']
         }
       ]
@@ -147,14 +146,14 @@ const Categories = () => {
       name_fr: 'Artisanat Alimentaire Traditionnel',
       icon: '🍯',
       color: 'from-yellow-400 to-amber-600',
-      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=200&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop&crop=center',
       subcategories: [
         {
           id: 'traditional-food',
           name_ar: 'الصناعات الغذائية التقليدية',
           name_fr: 'Industries Alimentaires Traditionnelles',
           count: 65,
-          image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop&crop=center',
           items: ['صناعة الخبز التقليدي (الطابون، الملة، التنور)', 'الحلويات اليدوية (المقروط، البقلاوة، المانتي)', 'الجبن التقليدي', 'التوابل المطحونة يدويًا', 'المربى والمخللات المنزلية']
         }
       ]
@@ -165,14 +164,14 @@ const Categories = () => {
       name_fr: 'Artisanat Cosmétique et Parfumerie',
       icon: '🌸',
       color: 'from-green-400 to-teal-600',
-      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=300&h=200&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=200&fit=crop&crop=center',
       subcategories: [
         {
           id: 'cosmetics-perfumes',
           name_ar: 'المستحضرات التجميلية والعطرية',
           name_fr: 'Cosmétiques et Parfums',
           count: 54,
-          image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=200&fit=crop&crop=center',
           items: ['صناعة الصابون الطبيعي', 'استخلاص الزيوت النباتية والعطرية', 'العطور التقليدية (مثل دهن العود، المسك)', 'مستحضرات تجميل طبيعية (من الأعشاب والطين)']
         }
       ]
@@ -183,14 +182,14 @@ const Categories = () => {
       name_fr: 'Artisanat Artistique Moderne',
       icon: '🎨',
       color: 'from-indigo-400 to-purple-600',
-      image: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=200&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=200&fit=crop&crop=center',
       subcategories: [
         {
           id: 'modern-arts',
           name_ar: 'الفنون الحديثة والهجينة',
           name_fr: 'Arts Modernes et Hybrides',
           count: 43,
-          image: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=200&h=150&fit=crop&crop=center',
+          image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=200&fit=crop&crop=center',
           items: ['إعادة تدوير الزجاجات والبلاستيك', 'تصميم المنتجات من الكرتون المعاد', 'الطباعة على القماش', 'الريزن آرت (فن الإيبوكسي)', 'الشمع اليدوي', 'فن الكولاج', 'فن الموزاييك الزجاجي']
         }
       ]
