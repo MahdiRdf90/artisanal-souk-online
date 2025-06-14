@@ -2,9 +2,44 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Download } from 'lucide-react';
 import TraditionalBasket3D from './TraditionalBasket3D';
 
 const HeroSection = () => {
+  const downloadAgreement = () => {
+    const agreementContent = `📄 اتفاقية الحرفي
+
+مرحبًا بك في مجتمع Craft Connect!
+قبل عرض خدماتك ومنتجاتك عبر منصتنا، نرجو منك الاطلاع والالتزام بالشروط التالية:
+
+✅ القوانين الأساسية:
+
+1. الشفافية والمصداقية
+يلتزم الحرفي بتقديم معلومات دقيقة وصور واقعية للمنتجات دون مبالغة أو تضليل، مع تحديد السعر النهائي شاملًا كل التكاليف.
+
+2. احترام المواعيد
+يلتزم الحرفي باحترام آجال التسليم المتفق عليها مع الزبون، مع إشعار مسبق في حال وجود أي تأخير مبرّر.
+
+3. الجودة والاحترافية
+يلتزم الحرفي بتقديم منتجات بجودة مطابقة للوصف، والعمل على تحسين مستمر لخدماته بما يعكس صورة إيجابية عن الحرفة الجزائرية.
+
+تفاعل مع الزبائن باحترام ولباقة، فالسمعة الجيدة هي مفتاح النجاح.
+
+---
+تاريخ الإصدار: ${new Date().toLocaleDateString('ar-DZ')}
+منصة Craft Connect - ربط الحرف التقليدية الجزائرية`;
+
+    const blob = new Blob([agreementContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'اتفاقية_الحرفي.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-sand-beige via-warm-beige to-background py-20 overflow-hidden">
       {/* Geometric Background Pattern */}
@@ -58,78 +93,39 @@ const HeroSection = () => {
                     كن حرفياً
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle className="text-2xl font-bold font-arabic text-heritage-brown text-center">
-                      اتفاقية الحرفي - منصة ربط الحرف
+                      انضم إلى مجتمع الحرفيين
                     </DialogTitle>
                   </DialogHeader>
                   <div className="space-y-6 p-6">
                     <div className="text-center mb-6">
                       <h3 className="text-xl font-semibold font-arabic text-craft-orange">
-                        شروط وأحكام انضمام الحرفيين
+                        اقرأ اتفاقية الحرفي قبل التسجيل
                       </h3>
+                      <p className="text-muted-foreground mt-2 font-arabic">
+                        يرجى تحميل والاطلاع على اتفاقية الحرفي قبل الانضمام لمنصتنا
+                      </p>
                     </div>
                     
-                    <div className="space-y-4 font-arabic text-right">
-                      <div>
-                        <h4 className="font-bold text-heritage-brown mb-2">1. التعريف والهدف:</h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          منصة "ربط الحرف" هي منصة رقمية جزائرية تهدف إلى ربط الحرفيين التقليديين بالعملاء المحليين والدوليين، وتعزيز التراث الثقافي الجزائري من خلال التجارة الإلكترونية.
-                        </p>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-heritage-brown mb-2">2. شروط الانضمام:</h4>
-                        <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                          <li>أن يكون المتقدم حرفياً مسجلاً أو يمارس حرفة تقليدية أصيلة</li>
-                          <li>تقديم وثائق تثبت الهوية والإقامة في الجزائر</li>
-                          <li>عرض صور وأوصاف دقيقة للمنتجات الحرفية</li>
-                          <li>الالتزام بمعايير الجودة والأصالة</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-heritage-brown mb-2">3. الالتزامات المالية:</h4>
-                        <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                          <li>عمولة 8% على كل عملية بيع ناجحة</li>
-                          <li>رسوم تحويل 2% للمدفوعات الإلكترونية</li>
-                          <li>لا توجد رسوم اشتراك شهرية أو سنوية</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-heritage-brown mb-2">4. حقوق والتزامات الحرفي:</h4>
-                        <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                          <li>حق عرض المنتجات وتحديد الأسعار</li>
-                          <li>الحصول على دعم تقني ومساعدة في التسويق</li>
-                          <li>الالتزام بمواعيد التسليم المحددة</li>
-                          <li>ضمان جودة المنتجات المعروضة</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-heritage-brown mb-2">5. حقوق الملكية الفكرية:</h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          يحتفظ الحرفي بحقوق الملكية الفكرية لتصاميمه، وتلتزم المنصة بحماية هذه الحقوق وعدم استخدامها دون إذن مسبق.
-                        </p>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-heritage-brown mb-2">6. فسخ الاتفاقية:</h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          يحق لأي من الطرفين فسخ هذه الاتفاقية بإشعار مسبق مدته 30 يوماً، مع احترام الالتزامات القائمة تجاه العملاء.
-                        </p>
-                      </div>
+                    <div className="flex justify-center mb-6">
+                      <Button 
+                        onClick={downloadAgreement}
+                        className="bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic flex items-center gap-2"
+                      >
+                        <Download className="w-4 h-4" />
+                        تحميل اتفاقية الحرفي
+                      </Button>
                     </div>
 
                     <div className="border-t pt-6 mt-6">
-                      <p className="text-center text-sm text-muted-foreground font-arabic">
-                        بالنقر على "موافق"، أنت توافق على جميع الشروط والأحكام المذكورة أعلاه
+                      <p className="text-center text-sm text-muted-foreground font-arabic mb-4">
+                        بعد قراءة الاتفاقية، يمكنك المتابعة للتسجيل كحرفي
                       </p>
-                      <div className="flex gap-4 justify-center mt-4">
-                        <Button className="bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic">
-                          موافق - تسجيل كحرفي
+                      <div className="flex gap-4 justify-center">
+                        <Button className="bg-heritage-brown hover:bg-heritage-brown/90 text-white font-arabic">
+                          تسجيل كحرفي
                         </Button>
                         <Button variant="outline" className="font-arabic">
                           إلغاء
@@ -139,13 +135,6 @@ const HeroSection = () => {
                   </div>
                 </DialogContent>
               </Dialog>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-craft-orange text-craft-orange hover:bg-craft-orange hover:text-white px-8 py-6 text-lg font-arabic"
-              >
-                اتفاقية الحرفي
-              </Button>
             </div>
 
             {/* Stats */}
