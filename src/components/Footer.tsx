@@ -1,6 +1,7 @@
 
 import { Card } from '@/components/ui/card';
 import { Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -36,10 +37,10 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4 font-arabic">روابط سريعة</h4>
             <ul className="space-y-3 text-white/80 font-arabic">
-              <li><a href="#" className="hover:text-craft-orange transition-colors">الصفحة الرئيسية</a></li>
-              <li><a href="#" className="hover:text-craft-orange transition-colors">أصناف المنتجات</a></li>
-              <li><a href="#" className="hover:text-craft-orange transition-colors">الحرفيين</a></li>
-              <li><a href="#" className="hover:text-craft-orange transition-colors">من نحن</a></li>
+              <li><Link to="/" className="hover:text-craft-orange transition-colors">الصفحة الرئيسية</Link></li>
+              <li><Link to="/categories" className="hover:text-craft-orange transition-colors">أصناف المنتجات</Link></li>
+              <li><Link to="/artisans" className="hover:text-craft-orange transition-colors">الحرفيين</Link></li>
+              <li><Link to="/about" className="hover:text-craft-orange transition-colors">من نحن</Link></li>
               <li>
                 <a 
                   href="https://www.facebook.com/profile.php?id=61555947713712&sk=about" 
