@@ -1,12 +1,15 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import OrderTracking from '@/components/order/OrderTracking';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Package, Truck, CheckCircle, MessageCircle, Star } from 'lucide-react';
+import { Package, Truck, CheckCircle, MessageCircle, Star, MapPin } from 'lucide-react';
+import { useState } from 'react';
 
 const Orders = () => {
+  const [selectedOrderForTracking, setSelectedOrderForTracking] = useState<string | null>(null);
+  
   const orders = [
     {
       id: 'ORD-001',
@@ -117,6 +120,44 @@ const Orders = () => {
     }
   };
 
+  if (selectedOrderForTracking) {
+    const order = orders.find(o => o.id === selectedOrderForTracking);
+    if (order) {
+      return (
+        <div className="min-h-screen bg-background">
+          <Header cartItemsCount={3} />
+          
+          <div className="container mx-auto px-4 py-8">
+            <div className="mb-6">
+              <Button
+                variant="outline"
+                onClick={() => setSelectedOrderForTracking(null)}
+                className="mb-4 font-arabic"
+              >
+                ← العودة للطلبات
+              </Button>
+              <h1 className="text-3xl font-bold font-arabic text-heritage-brown mb-2">
+                تتبع الطلب
+              </h1>
+              <h2 className="text-xl text-clay-brown">
+                Suivi de Commande
+              </h2>
+            </div>
+
+            <OrderTracking
+              orderId={order.id}
+              status={order.status}
+              estimatedDelivery={order.estimatedDelivery}
+              trackingNumber={order.trackingNumber}
+            />
+          </div>
+
+          <Footer />
+        </div>
+      );
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Header cartItemsCount={3} />
@@ -183,6 +224,17 @@ const Orders = () => {
                         <Button variant="outline" size="sm">
                           <MessageCircle size={16} />
                         </Button>
+                        {(order.status === 'shipped' || order.status === 'delivered') && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setSelectedOrderForTracking(order.id)}
+                            className="font-arabic bg-orange-50 border-orange-200 text-orange-700 hover:bg-orange-100"
+                          >
+                            <MapPin size={16} className="mr-1" />
+                            تتبع GPS
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </div>
