@@ -1,8 +1,6 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
 const About = () => {
   return (
@@ -52,16 +50,9 @@ const About = () => {
                       في Craft Connect، نؤمن أن كل قطعة مصنوعة يدويًا تحمل قصة تستحق أن تُروى. نستخدم التكنولوجيا لنروي تلك القصص، من خلال واجهة ذكية وسهلة، وميزات مبتكرة كالعرض بالذكاء الاصطناعي والدفع الإلكتروني بالدينار الجزائري.
                     </p>
 
-                    <p className="text-xl font-bold font-arabic text-craft-orange text-center mb-8">
+                    <p className="text-xl font-bold font-arabic text-craft-orange text-center">
                       نحن الجسر بين التراث والمستقبل، بين الحرفة والرقمنة.
                     </p>
-
-                    {/* Action Button */}
-                    <div className="text-center">
-                      <Button className="bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic text-lg px-8 py-3">
-                        اتفاقية الحرفي
-                      </Button>
-                    </div>
                   </div>
                 </div>
               </CardContent>

@@ -54,6 +54,13 @@ const HeroSection = () => {
               >
                 كن حرفياً
               </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-craft-orange text-craft-orange hover:bg-craft-orange hover:text-white px-8 py-6 text-lg font-arabic"
+              >
+                اتفاقية الحرفي
+              </Button>
             </div>
 
             {/* Stats */}
