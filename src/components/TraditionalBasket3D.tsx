@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Float } from '@react-three/drei';
 import { TextureLoader } from 'three';
@@ -54,10 +54,71 @@ const Basket3D = () => {
   );
 };
 
+const FallbackBasket = () => {
+  return (
+    <div className="w-full h-[400px] rounded-lg overflow-hidden bg-gradient-to-br from-craft-orange to-copper-accent flex items-center justify-center">
+      <div className="text-center text-white p-8">
+        <div className="text-6xl mb-4">🧺</div>
+        <h3 className="text-xl font-bold mb-2 font-arabic">سلال تقليدية جزائرية</h3>
+        <p className="text-sm opacity-90">Traditional Algerian Baskets</p>
+        <p className="text-xs mt-2 opacity-75">3D view not available</p>
+      </div>
+    </div>
+  );
+};
+
 const TraditionalBasket3D = () => {
+  const [webglSupported, setWebglSupported] = useState<boolean | null>(null);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    // Check WebGL support
+    const checkWebGLSupport = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        return !!context;
+      } catch (e) {
+        return false;
+      }
+    };
+
+    setWebglSupported(checkWebGLSupport());
+  }, []);
+
+  const handleError = (error: any) => {
+    console.warn('3D Canvas error:', error);
+    setHasError(true);
+  };
+
+  // Show loading while checking WebGL support
+  if (webglSupported === null) {
+    return (
+      <div className="w-full h-[400px] rounded-lg overflow-hidden bg-gradient-to-br from-sand-beige to-warm-beige flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin text-4xl mb-4">⚪</div>
+          <p className="text-muted-foreground">Loading 3D scene...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show fallback if WebGL is not supported or if there's an error
+  if (!webglSupported || hasError) {
+    return <FallbackBasket />;
+  }
+
   return (
     <div className="w-full h-[400px] rounded-lg overflow-hidden">
-      <Canvas camera={{ position: [0, 2, 6], fov: 45 }}>
+      <Canvas 
+        camera={{ position: [0, 2, 6], fov: 45 }}
+        onError={handleError}
+        gl={{ 
+          antialias: true, 
+          alpha: true,
+          failIfMajorPerformanceCaveat: false 
+        }}
+      >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <pointLight position={[-5, 5, 5]} intensity={0.5} color="#FF6B35" />
