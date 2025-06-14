@@ -1,0 +1,48 @@
+
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Traditional Pottery Collection",
+      "description": "Handcrafted ceramic pieces showcasing ancient techniques",
+      "fullDescription": "This collection represents the pinnacle of traditional pottery craftsmanship, featuring pieces that have been meticulously handcrafted using techniques passed down through generations. Each piece tells a story of cultural heritage and artistic excellence, combining functionality with aesthetic beauty.",
+      "techStack": ["Hand-thrown ceramic", "Natural glazes", "Traditional firing"],
+      "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+      "links": {
+        "demo": "#",
+        "website": "#"
+      },
+      "category": "pottery",
+      "featured": true
+    },
+    {
+      "id": "2",
+      "title": "Woven Textile Artworks",
+      "description": "Contemporary interpretations of traditional weaving patterns",
+      "fullDescription": "Our textile collection bridges the gap between traditional craftsmanship and modern design sensibilities. Using time-honored weaving techniques, our artisans create contemporary pieces that celebrate cultural heritage while meeting today's aesthetic and functional requirements.",
+      "techStack": ["Hand-woven fabric", "Natural dyes", "Traditional looms"],
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
+      "links": {
+        "demo": "#",
+        "github": "#"
+      },
+      "category": "textiles",
+      "featured": true
+    },
+    {
+      "id": "3",
+      "title": "Wooden Craft Sculptures",
+      "description": "Hand-carved wooden art pieces with intricate details",
+      "fullDescription": "Each wooden sculpture in this collection is a testament to the skill and patience of master craftspeople. Using traditional carving tools and techniques, these pieces showcase the natural beauty of wood while incorporating intricate patterns and designs that reflect cultural motifs and contemporary artistic vision.",
+      "techStack": ["Hand carving", "Natural wood finishing", "Traditional tools"],
+      "image": "https://images.unsplash.com/photo-1544967882-4d0b8e4b5c3a?w=800&h=600&fit=crop",
+      "links": {
+        "demo": "#",
+        "website": "#",
+        "github": "#"
+      },
+      "category": "woodwork",
+      "featured": false
+    }
+  ]
+}
