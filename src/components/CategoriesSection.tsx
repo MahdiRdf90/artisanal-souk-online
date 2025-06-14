@@ -11,7 +11,8 @@ const CategoriesSection = () => {
       description_fr: 'Bois, poterie, pierre, plantes, cuir',
       icon: '🌿',
       color: 'from-green-400 to-emerald-600',
-      count: 45
+      count: 45,
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 2,
@@ -21,7 +22,8 @@ const CategoriesSection = () => {
       description_fr: 'Qaftans, tapis, textiles traditionnels',
       icon: '🧶',
       color: 'from-purple-400 to-indigo-600',
-      count: 32
+      count: 32,
+      image: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 3,
@@ -31,7 +33,8 @@ const CategoriesSection = () => {
       description_fr: 'Bijoux, henné, décoration saisonnière',
       icon: '💎',
       color: 'from-pink-400 to-rose-600',
-      count: 28
+      count: 28,
+      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 4,
@@ -41,7 +44,8 @@ const CategoriesSection = () => {
       description_fr: 'Cuivre, fer, lampes traditionnelles',
       icon: '🔨',
       color: 'from-amber-400 to-orange-600',
-      count: 19
+      count: 19,
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 5,
@@ -51,7 +55,8 @@ const CategoriesSection = () => {
       description_fr: 'Pain, pâtisseries, fromage traditionnel',
       icon: '🍯',
       color: 'from-yellow-400 to-amber-600',
-      count: 23
+      count: 23,
+      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 6,
@@ -61,7 +66,8 @@ const CategoriesSection = () => {
       description_fr: 'Savons, huiles, parfums naturels',
       icon: '🌸',
       color: 'from-green-400 to-teal-600',
-      count: 15
+      count: 15,
+      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=300&h=200&fit=crop&crop=center'
     }
   ];
 
@@ -91,6 +97,15 @@ const CategoriesSection = () => {
               style={{animationDelay: `${index * 0.1}s`}}
             >
               <CardContent className="p-0">
+                {/* Category Image */}
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.name_ar}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
                 {/* Header with Gradient */}
                 <div className={`bg-gradient-to-r ${category.color} p-6 text-white relative overflow-hidden`}>
                   <div className="absolute top-0 right-0 text-6xl opacity-20 transform rotate-12">
