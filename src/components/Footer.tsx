@@ -19,8 +19,8 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-bold font-arabic">ربط الحرف</h3>
-                <p className="text-white/80">Craft Connect</p>
+                <h3 className="text-2xl font-bold">Craft Connect</h3>
+                <p className="text-white/80 font-arabic">ربط الحرف</p>
               </div>
             </div>
             <p className="text-white/80 mb-6 max-w-md font-arabic">
@@ -87,8 +87,8 @@ const Footer = () => {
             </div>
             
             <div className="mt-6 lg:mt-0">
-              <p className="text-white/60 text-sm font-arabic">
-                &copy; 2025 ربط الحرف. جميع الحقوق محفوظة
+              <p className="text-white/60 text-sm">
+                &copy; 2025 Craft Connect. جميع الحقوق محفوظة
               </p>
             </div>
           </div>

@@ -28,14 +28,6 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
     }
   };
 
-  const getWelcomeText = () => {
-    switch (language) {
-      case 'ar': return 'ربط الحرف';
-      case 'fr': return 'Craft Connect';
-      case 'en': return 'Craft Connect';
-    }
-  };
-
   const getNavigationText = () => {
     switch (language) {
       case 'ar': return {
@@ -75,8 +67,8 @@ const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
               />
             </div>
             <div>
-              <h1 className={`text-2xl font-bold text-heritage-brown ${language === 'ar' ? 'font-arabic' : ''}`}>
-                {getWelcomeText()}
+              <h1 className="text-2xl font-bold text-heritage-brown">
+                Craft Connect
               </h1>
               <p className="text-xs text-muted-foreground">
                 {language === 'ar' ? 'منصة الحرف الجزائرية التقليدية' : 'Plateforme Artisanale Algérienne'}
