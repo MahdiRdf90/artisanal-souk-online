@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 
@@ -45,7 +46,7 @@ const CategoriesSection = () => {
       icon: '🔨',
       color: 'from-amber-400 to-orange-600',
       count: 76,
-      image: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=300&h=200&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop&crop=center'
     },
     {
       id: 5,
@@ -104,17 +105,24 @@ const CategoriesSection = () => {
           {categories.map((category, index) => (
             <Link key={category.id} to={`/categories/${category.id}`}>
               <Card 
-                className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border-0 shadow-md hover:-translate-y-1 overflow-hidden h-full"
+                className="group hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white border-0 shadow-lg hover:-translate-y-2 overflow-hidden h-full rounded-2xl"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
                 <CardContent className="p-0 h-full flex flex-col">
                   {/* Category Image */}
-                  <div className="h-48 overflow-hidden">
+                  <div className="h-48 overflow-hidden relative">
                     <img 
                       src={category.image} 
                       alt={category.name_ar}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+                    {/* Subtle overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-craft-orange/10 via-transparent to-copper-accent/10"></div>
+                    
+                    {/* Icon overlay */}
+                    <div className="absolute top-4 right-4 text-4xl opacity-80 bg-white/20 backdrop-blur-sm rounded-full p-2">
+                      {category.icon}
+                    </div>
                   </div>
 
                   {/* Header with Gradient */}
@@ -123,7 +131,6 @@ const CategoriesSection = () => {
                       {category.icon}
                     </div>
                     <div className="relative z-10">
-                      <div className="text-4xl mb-3">{category.icon}</div>
                       <h4 className="text-lg font-bold font-arabic mb-2 line-clamp-2">
                         {category.name_ar}
                       </h4>
