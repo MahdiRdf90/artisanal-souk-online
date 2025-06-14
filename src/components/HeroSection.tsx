@@ -1,10 +1,10 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Download, ArrowRight, Star, Users, Package, Globe, ChevronDown, Upload, Image } from 'lucide-react';
+import { Download, ArrowRight, Star, Users, Package, Globe, ChevronDown, Upload } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import MovingImageGallery from './MovingImageGallery';
 
 const HeroSection = () => {
   // Dynamic background state - can be easily modified
@@ -306,22 +306,14 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Hero Image/Visual - Enhanced with neon frame */}
+            {/* Hero Image/Visual - Enhanced with moving image gallery */}
             <div className="order-1 lg:order-2 relative">
-              <div className="relative">
-                {/* Subtle glow frame around image */}
+              <div className="relative pb-12">
+                {/* Subtle glow frame around image gallery */}
                 <div className="absolute -inset-4 bg-gradient-to-r from-craft-orange via-copper-accent to-heritage-brown rounded-3xl blur-lg opacity-10 animate-pulse"></div>
                 
-                {/* Main Hero Image */}
-                <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl shadow-craft-orange/20 border border-craft-orange/20 relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center" 
-                    alt="Traditional Algerian Crafts"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Image overlay for subtle effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-craft-orange/5 via-transparent to-copper-accent/5"></div>
-                </div>
+                {/* Moving Image Gallery */}
+                <MovingImageGallery />
                 
                 {/* Floating Cards - Enhanced with better styling */}
                 <Card className="absolute -top-4 -left-4 p-4 bg-white/90 backdrop-blur-sm shadow-xl shadow-craft-orange/20 animate-float border border-craft-orange/20 neon-card">
