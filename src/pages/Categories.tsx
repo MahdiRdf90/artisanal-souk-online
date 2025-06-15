@@ -153,7 +153,7 @@ const Categories = () => {
           id: 'traditional-sweets',
           name_ar: 'الحلويات التقليدية',
           name_fr: 'Pâtisseries Traditionnelles',
-          count: 1,
+          count: 3,
           image: '/lovable-uploads/63029d83-c877-4813-a969-ff921d862a76.png',
           items: ['كحلوشي', 'المقروط', 'البقلاوة', 'الزلابية', 'المعكرون']
         },
