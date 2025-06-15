@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,7 +15,7 @@ import { useToast } from '@/hooks/use-toast';
 const checkoutSchema = z.object({
   firstName: z.string().min(2, 'الاسم الأول يجب أن يكون على الأقل حرفين'),
   lastName: z.string().min(2, 'اسم العائلة يجب أن يكون على الأقل حرفين'),
-  email: z.string().email('البريد الإلكتروني غير صحيح'),
+  email: z.string().email('البريد الإلكتروني غير صحيح').optional().or(z.literal('')),
   phone: z.string().min(10, 'رقم الهاتف يجب أن يكون على الأقل 10 أرقام'),
   address: z.string().min(10, 'العنوان يجب أن يكون مفصلاً أكثر'),
   city: z.string().min(1, 'اختر المدينة'),
@@ -152,7 +151,7 @@ const CheckoutForm = ({ onSubmit, isLoading = false }: CheckoutFormProps) => {
                   <FormItem>
                     <FormLabel className="flex items-center space-x-2 rtl:space-x-reverse">
                       <Mail size={16} />
-                      <span className="font-arabic">البريد الإلكتروني *</span>
+                      <span className="font-arabic">البريد الإلكتروني (اختياري)</span>
                     </FormLabel>
                     <FormControl>
                       <Input type="email" placeholder="example@email.com" {...field} />
