@@ -117,20 +117,25 @@ const Artisans = () => {
   const regions = ['الكل', 'الجزائر', 'تلمسان', 'قسنطينة', 'بجاية', 'غرداية', 'وهران', 'عنابة'];
   const categories = ['الكل', 'نسيج وتطريز', 'أشغال معدنية', 'حرف طبيعية', 'مجوهرات وزينة', 'حرف غذائية'];
 
+  // فلترة الحرفيين حسب البحث/الصنف/المنطقة
   const filteredArtisans = artisans.filter(artisan => {
     const matchesSearch = artisan.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          artisan.name_fr.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          artisan.owner.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesRegion = selectedRegion === 'all' || artisan.region === selectedRegion;
     const matchesCategory = selectedCategory === 'all' || artisan.category === selectedCategory;
-    
     return matchesSearch && matchesRegion && matchesCategory;
   });
+
+  // دوال تغيير Tabs التصنيف
+  const handleCategoryTab = (category: string) => {
+    setSelectedCategory(category === 'الكل' ? 'all' : category);
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <div className="bg-sand-beige py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold font-arabic text-heritage-brown mb-4">
@@ -143,8 +148,26 @@ const Artisans = () => {
             اكتشف أمهر الحرفيين الجزائريين وتسوق مباشرة من ورشهم الأصيلة
           </p>
           
-          {/* Search and Filters */}
-          <div className="max-w-4xl mx-auto">
+          {/* Tabs للأصناف */}
+          <div className="flex justify-center items-center gap-2 md:gap-4 mb-8 flex-wrap">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleCategoryTab(category)}
+                className={
+                  "px-4 py-2 font-arabic rounded-full transition border " +
+                  (selectedCategory === (category === 'الكل' ? 'all' : category)
+                    ? 'bg-craft-orange text-white border-craft-orange shadow'
+                    : 'bg-white text-heritage-brown border-gray-300 hover:bg-craft-orange/10')
+                }
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Search & Filters */}
+          <div className="max-w-4xl mx-auto mb-4">
             <div className="grid md:grid-cols-4 gap-4">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={20} />
@@ -166,17 +189,8 @@ const Artisans = () => {
                   </option>
                 ))}
               </select>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 border border-input bg-background rounded-md font-arabic"
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category === 'الكل' ? 'all' : category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
+              {/* أخفينا select التصنيف لأنها أصبحت ضمن الـ tabs */}
+              <div className="hidden md:block"></div>
               <Button className="bg-craft-orange hover:bg-craft-orange/90 font-arabic">
                 <Filter size={18} className="mr-2" />
                 تصفية
