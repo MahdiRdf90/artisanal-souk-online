@@ -25,7 +25,7 @@ const Categories = () => {
           name_ar: 'الحرف الخشبية',
           name_fr: 'Artisanat du Bois',
           count: 45,
-          image: '/lovable-uploads/6e3b0490-1395-4245-9409-26cdfaddcc1b.png',
+          image: '/lovable-uploads/d236cb59-dae9-4202-9d60-cb1c5c62a59d.png',
           items: ['النقش على الخشب', 'صناعة الأثاث اليدوي', 'صناعة العرائس الخشبية', 'النحت الخشبي', 'صناعة الأقواس والسهام']
         },
         {
