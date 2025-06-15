@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Eye } from 'lucide-react';
+import { ShoppingCart, Eye, Plus } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
 
 interface Product {
   id: string;
@@ -20,14 +21,15 @@ interface Product {
 
 interface ProductCardProps {
   product: Product;
-  onAddToCart?: (product: Product) => void;
 }
 
-const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
-  const handleAddToCart = () => {
-    if (onAddToCart) {
-      onAddToCart(product);
-    }
+const ProductCard = ({ product }: ProductCardProps) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product);
   };
 
   return (
@@ -80,9 +82,9 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
               onClick={handleAddToCart}
               disabled={!product.available}
               size="sm"
-              className="flex-1 bg-craft-orange hover:bg-craft-orange/90"
+              className="flex-1 bg-craft-orange hover:bg-craft-orange/90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ShoppingCart size={16} className="mr-2" />
+              <Plus size={16} className="mr-2" />
               أضف للسلة
             </Button>
           </div>

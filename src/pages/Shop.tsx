@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -36,7 +35,7 @@ const Shop = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={3} />
+      <Header />
       
       {/* Hero Section */}
       <div className="bg-sand-beige py-16">

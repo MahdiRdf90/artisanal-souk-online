@@ -1,164 +1,149 @@
-
 import { useState } from 'react';
-import { ShoppingCart, Bell, Settings, Home, User, Store } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Link, useNavigate } from 'react-router-dom';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Input } from '@/components/ui/input';
+import { Menu, Search, ShoppingCart, User, Heart, Bell } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
 
-interface HeaderProps {
-  cartItemsCount?: number;
-}
-
-const Header = ({ cartItemsCount = 0 }: HeaderProps) => {
-  const [language, setLanguage] = useState<'ar' | 'fr' | 'en'>('ar');
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  const { getTotalItems } = useCart();
 
-  const toggleLanguage = () => {
-    const languages: ('ar' | 'fr' | 'en')[] = ['ar', 'fr', 'en'];
-    const currentIndex = languages.indexOf(language);
-    const nextIndex = (currentIndex + 1) % languages.length;
-    setLanguage(languages[nextIndex]);
-  };
-
-  const getLanguageText = () => {
-    switch (language) {
-      case 'ar': return 'العربية';
-      case 'fr': return 'Français';
-      case 'en': return 'English';
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery('');
     }
   };
 
-  const getNavigationText = () => {
-    switch (language) {
-      case 'ar': return {
-        home: 'الرئيسية',
-        categories: 'الأصناف',
-        artisans: 'الحرفيين',
-        cart: 'السلة'
-      };
-      case 'fr': return {
-        home: 'Accueil',
-        categories: 'Catégories',
-        artisans: 'Artisans',
-        cart: 'Panier'
-      };
-      case 'en': return {
-        home: 'Home',
-        categories: 'Categories',
-        artisans: 'Artisans',
-        cart: 'Cart'
-      };
-    }
-  };
-
-  const nav = getNavigationText();
+  const navItems = [
+    { href: '/', label: 'الرئيسية', labelFr: 'Accueil' },
+    { href: '/categories', label: 'الأصناف', labelFr: 'Catégories' },
+    { href: '/shop', label: 'المتجر', labelFr: 'Boutique' },
+    { href: '/artisans', label: 'الحرفيون', labelFr: 'Artisans' },
+    { href: '/about', label: 'من نحن', labelFr: 'À Propos' },
+  ];
 
   return (
-    <header className="bg-white shadow-sm border-b border-heritage/10 sticky top-0 z-50 backdrop-blur-md bg-white/95">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <div className="w-12 h-12 flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/5ee30ec6-0441-4b0d-8c48-a6d12ed463d4.png" 
-                alt="Craft Connect Logo"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-heritage-brown">
-                Craft Connect
-              </h1>
-              <p className="text-xs text-muted-foreground">
-                {language === 'ar' ? 'منصة الحرف الجزائرية التقليدية' : 'Plateforme Artisanale Algérienne'}
-              </p>
-            </div>
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-2">
+          <div className="flex flex-col items-center">
+            <span className="text-2xl font-bold font-arabic text-heritage-brown">تراثنا</span>
+            <span className="text-xs text-clay-brown">Notre Patrimoine</span>
+          </div>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              to={item.href}
+              className="group flex flex-col items-center text-sm font-medium transition-colors hover:text-craft-orange"
+            >
+              <span className="font-arabic">{item.label}</span>
+              <span className="text-xs text-muted-foreground group-hover:text-craft-orange/70">
+                {item.labelFr}
+              </span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* Search Bar - Desktop */}
+        <form onSubmit={handleSearch} className="hidden md:flex items-center space-x-2 rtl:space-x-reverse">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
+            <Input
+              type="search"
+              placeholder="ابحث في المنتجات..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 w-64 font-arabic"
+            />
+          </div>
+        </form>
+
+        {/* Actions */}
+        <div className="flex items-center space-x-4 rtl:space-x-reverse">
+          {/* Cart */}
+          <Link to="/cart">
+            <Button variant="ghost" size="sm" className="relative">
+              <ShoppingCart size={20} />
+              {getTotalItems() > 0 && (
+                <Badge 
+                  variant="destructive" 
+                  className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs"
+                >
+                  {getTotalItems()}
+                </Badge>
+              )}
+            </Button>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-            <Link to="/" className={`flex items-center space-x-2 rtl:space-x-reverse text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
-              <Home size={18} />
-              <span>{nav.home}</span>
-            </Link>
-            <Link to="/categories" className={`text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
-              {nav.categories}
-            </Link>
-            <Link to="/artisans" className={`text-heritage-brown hover:text-craft-orange transition-colors ${language === 'ar' ? 'font-arabic' : ''}`}>
-              {nav.artisans}
-            </Link>
-          </nav>
+          {/* Wishlist */}
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <Heart size={20} />
+          </Button>
 
-          {/* Actions */}
-          <div className="flex items-center space-x-4 rtl:space-x-reverse">
-            {/* Language Toggle */}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={toggleLanguage}
-              className="text-heritage-brown hover:bg-warm-beige"
-            >
-              {getLanguageText()}
+          {/* Notifications */}
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <Bell size={20} />
+          </Button>
+
+          {/* Profile */}
+          <Link to="/profile">
+            <Button variant="ghost" size="sm">
+              <User size={20} />
             </Button>
+          </Link>
 
-            {/* Notifications */}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="relative text-heritage-brown hover:bg-warm-beige"
-            >
-              <Bell size={20} />
-              <Badge className="absolute -top-1 -right-1 h-4 w-4 p-0 bg-craft-orange text-xs">
-                2
-              </Badge>
-            </Button>
-
-            {/* Cart */}
-            <Link to="/cart">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="relative text-heritage-brown hover:bg-warm-beige"
-              >
-                <ShoppingCart size={20} />
-                {cartItemsCount > 0 && (
-                  <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 bg-craft-orange text-xs">
-                    {cartItemsCount}
-                  </Badge>
-                )}
+          {/* Mobile Menu */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="sm" className="md:hidden">
+                <Menu size={20} />
               </Button>
-            </Link>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-80">
+              <div className="flex flex-col space-y-4 mt-4">
+                {/* Mobile Search */}
+                <form onSubmit={handleSearch} className="flex items-center space-x-2 rtl:space-x-reverse">
+                  <div className="relative flex-1">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
+                    <Input
+                      type="search"
+                      placeholder="ابحث في المنتجات..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10 font-arabic"
+                    />
+                  </div>
+                </form>
 
-            {/* Profile */}
-            <Link to="/profile">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="text-heritage-brown hover:bg-warm-beige"
-              >
-                <User size={20} />
-              </Button>
-            </Link>
-
-            {/* Vendor Dashboard */}
-            <Link to="/vendor">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="text-heritage-brown hover:bg-warm-beige"
-              >
-                <Store size={20} />
-              </Button>
-            </Link>
-
-            {/* Login Button */}
-            <Link to="/login">
-              <Button className="bg-craft-orange hover:bg-craft-orange/90 text-white px-6">
-                {language === 'ar' ? 'دخول' : language === 'fr' ? 'Connexion' : 'Login'}
-              </Button>
-            </Link>
-          </div>
+                {/* Mobile Navigation */}
+                <nav className="flex flex-col space-y-2">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors"
+                    >
+                      <span className="font-arabic font-medium">{item.label}</span>
+                      <span className="text-sm text-muted-foreground">{item.labelFr}</span>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
