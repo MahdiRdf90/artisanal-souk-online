@@ -6,13 +6,13 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Input } from '@/components/ui/input';
 import { Menu, Search, ShoppingCart, User, Heart, Bell } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
-  const { getTotalItems } = useCart();
-
+  const {
+    getTotalItems
+  } = useCart();
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -20,53 +20,52 @@ const Header = () => {
       setSearchQuery('');
     }
   };
-
-  const navItems = [
-    { href: '/', label: 'الرئيسية', labelFr: 'Accueil' },
-    { href: '/categories', label: 'الأصناف', labelFr: 'Catégories' },
-    { href: '/shop', label: 'المتجر', labelFr: 'Boutique' },
-    { href: '/artisans', label: 'الحرفيون', labelFr: 'Artisans' },
-    { href: '/about', label: 'من نحن', labelFr: 'À Propos' },
-  ];
-
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+  const navItems = [{
+    href: '/',
+    label: 'الرئيسية',
+    labelFr: 'Accueil'
+  }, {
+    href: '/categories',
+    label: 'الأصناف',
+    labelFr: 'Catégories'
+  }, {
+    href: '/shop',
+    label: 'المتجر',
+    labelFr: 'Boutique'
+  }, {
+    href: '/artisans',
+    label: 'الحرفيون',
+    labelFr: 'Artisans'
+  }, {
+    href: '/about',
+    label: 'من نحن',
+    labelFr: 'À Propos'
+  }];
+  return <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold font-arabic text-heritage-brown">تراثنا</span>
+            <span className="text-2xl font-bold font-arabic text-heritage-brown">craft connect</span>
             <span className="text-xs text-clay-brown">Notre Patrimoine</span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className="group flex flex-col items-center text-sm font-medium transition-colors hover:text-craft-orange"
-            >
+          {navItems.map(item => <Link key={item.href} to={item.href} className="group flex flex-col items-center text-sm font-medium transition-colors hover:text-craft-orange">
               <span className="font-arabic">{item.label}</span>
               <span className="text-xs text-muted-foreground group-hover:text-craft-orange/70">
                 {item.labelFr}
               </span>
-            </Link>
-          ))}
+            </Link>)}
         </nav>
 
         {/* Search Bar - Desktop */}
         <form onSubmit={handleSearch} className="hidden md:flex items-center space-x-2 rtl:space-x-reverse">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
-            <Input
-              type="search"
-              placeholder="ابحث في المنتجات..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 w-64 font-arabic"
-            />
+            <Input type="search" placeholder="ابحث في المنتجات..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10 w-64 font-arabic" />
           </div>
         </form>
 
@@ -76,14 +75,9 @@ const Header = () => {
           <Link to="/cart">
             <Button variant="ghost" size="sm" className="relative">
               <ShoppingCart size={20} />
-              {getTotalItems() > 0 && (
-                <Badge 
-                  variant="destructive" 
-                  className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs"
-                >
+              {getTotalItems() > 0 && <Badge variant="destructive" className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
                   {getTotalItems()}
-                </Badge>
-              )}
+                </Badge>}
             </Button>
           </Link>
 
@@ -117,37 +111,22 @@ const Header = () => {
                 <form onSubmit={handleSearch} className="flex items-center space-x-2 rtl:space-x-reverse">
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
-                    <Input
-                      type="search"
-                      placeholder="ابحث في المنتجات..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 font-arabic"
-                    />
+                    <Input type="search" placeholder="ابحث في المنتجات..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10 font-arabic" />
                   </div>
                 </form>
 
                 {/* Mobile Navigation */}
                 <nav className="flex flex-col space-y-2">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors"
-                    >
+                  {navItems.map(item => <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors">
                       <span className="font-arabic font-medium">{item.label}</span>
                       <span className="text-sm text-muted-foreground">{item.labelFr}</span>
-                    </Link>
-                  ))}
+                    </Link>)}
                 </nav>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
