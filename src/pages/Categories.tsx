@@ -369,57 +369,55 @@ const Categories = () => {
 
               <div className={viewMode === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}>
                 {selectedCategory.subcategories.map((subcategory) => (
-                  <Card key={subcategory.id} className="hover:shadow-lg transition-shadow cursor-pointer overflow-hidden">
-                    <CardContent className="p-0">
-                      <div className="h-40 overflow-hidden">
-                        <img 
-                          src={subcategory.image} 
-                          alt={subcategory.name_ar}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      
-                      <div className="p-6">
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex-1">
-                            <h3 className="text-lg font-bold font-arabic text-heritage-brown mb-1">
-                              {subcategory.name_ar}
-                            </h3>
-                            <p className="text-clay-brown mb-2">{subcategory.name_fr}</p>
-                            <p className="text-sm text-muted-foreground mb-3">
-                              {subcategory.count} منتج متوفر
-                            </p>
-                          </div>
-                          <ChevronRight className="text-craft-orange mt-1" size={20} />
+                  <Link 
+                    key={subcategory.id} 
+                    to={`/shop?category=${encodeURIComponent(subcategory.name_ar)}`}
+                  >
+                    <Card className="hover:shadow-lg transition-shadow cursor-pointer overflow-hidden">
+                      <CardContent className="p-0">
+                        <div className="h-40 overflow-hidden">
+                          <img 
+                            src={subcategory.image} 
+                            alt={subcategory.name_ar}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          />
                         </div>
                         
-                        {subcategory.items && (
-                          <div className="space-y-2">
-                            <h4 className="text-sm font-semibold text-heritage-brown">العناصر المتوفرة:</h4>
-                            <div className="flex flex-wrap gap-1">
-                              {subcategory.items.slice(0, 3).map((item, index) => (
-                                <Badge key={index} variant="outline" className="text-xs font-arabic">
-                                  {item}
-                                </Badge>
-                              ))}
-                              {subcategory.items.length > 3 && (
-                                <Badge variant="secondary" className="text-xs">
-                                  +{subcategory.items.length - 3} المزيد
-                                </Badge>
-                              )}
+                        <div className="p-6">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="flex-1">
+                              <h3 className="text-lg font-bold font-arabic text-heritage-brown mb-1">
+                                {subcategory.name_ar}
+                              </h3>
+                              <p className="text-clay-brown mb-2">{subcategory.name_fr}</p>
+                              <p className="text-sm text-muted-foreground mb-3">
+                                {subcategory.count} منتج متوفر
+                              </p>
                             </div>
+                            <ChevronRight className="text-craft-orange mt-1" size={20} />
                           </div>
-                        )}
-
-                        {/* Show products for traditional sweets subcategory */}
-                        {subcategory.id === 'traditional-sweets' && (
-                          <div className="mt-4">
-                            <ProductsGrid category="الحلويات التقليدية" />
-                          </div>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                          
+                          {subcategory.items && (
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-semibold text-heritage-brown">العناصر المتوفرة:</h4>
+                              <div className="flex flex-wrap gap-1">
+                                {subcategory.items.slice(0, 3).map((item, index) => (
+                                  <Badge key={index} variant="outline" className="text-xs font-arabic">
+                                    {item}
+                                  </Badge>
+                                ))}
+                                {subcategory.items.length > 3 && (
+                                  <Badge variant="secondary" className="text-xs">
+                                    +{subcategory.items.length - 3} المزيد
+                                  </Badge>
+                                )}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 ))}
               </div>
             </>

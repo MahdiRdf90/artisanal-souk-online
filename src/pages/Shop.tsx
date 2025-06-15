@@ -1,5 +1,6 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductsGrid from '@/components/products/ProductsGrid';
@@ -9,9 +10,19 @@ import { Badge } from '@/components/ui/badge';
 import { Search, Filter, Grid3X3, List } from 'lucide-react';
 
 const Shop = () => {
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
+  // Extract category from URL parameters
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const categoryFromUrl = searchParams.get('category');
+    if (categoryFromUrl) {
+      setSelectedCategory(decodeURIComponent(categoryFromUrl));
+    }
+  }, [location.search]);
 
   const categories = [
     'الحلويات التقليدية',
@@ -118,18 +129,18 @@ const Shop = () => {
         <ProductsGrid category={selectedCategory || undefined} />
 
         {/* Featured Product Highlight */}
-        <div className="mt-16 bg-sand-beige rounded-2xl p-8">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold font-arabic text-heritage-brown mb-4">
-              منتج مميز - كحلوشي تقليدي
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto font-arabic">
-              جرب طعم التراث الأصيل مع الكحلوشي المصنوع حسب الوصفات التقليدية الجزائرية
-            </p>
+        {selectedCategory === 'الحلويات التقليدية' && (
+          <div className="mt-16 bg-sand-beige rounded-2xl p-8">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold font-arabic text-heritage-brown mb-4">
+                منتجات مميزة - الحلويات التقليدية
+              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto font-arabic">
+                جرب طعم التراث الأصيل مع حلوياتنا المصنوعة حسب الوصفات التقليدية الجزائرية
+              </p>
+            </div>
           </div>
-          
-          <ProductsGrid category="الحلويات التقليدية" limit={1} />
-        </div>
+        )}
       </div>
 
       <Footer />
