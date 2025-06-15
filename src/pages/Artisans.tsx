@@ -39,6 +39,28 @@ const Artisans = () => {
       }
     },
     {
+      id: 'fatima-cook',
+      name: 'Fatima cook',
+      name_fr: 'Fatima Cook',
+      owner: 'فاطمة كووك',
+      owner_fr: 'Fatima Cook',
+      region: 'سطيف',
+      region_fr: 'Sétif',
+      category: 'حرف غذائية',
+      rating: 5.0,
+      reviews: 22,
+      products: 8,
+      followers: 132,
+      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=300&fit=crop',
+      description: 'تقدم فاطمة ألذ المأكولات التقليدية الجزائرية من قلب سطيف بأسلوب منزلي أصيل',
+      description_fr: 'Fatima propose les meilleurs plats traditionnels algériens faits maison à Sétif',
+      established: '2021',
+      badges: ['مذاق بيتي', 'وصفات تراثية', 'أطباق جزائرية'],
+      socialMedia: {
+        facebook: ''
+      }
+    },
+    {
       id: 'shop-1',
       name: 'ورشة فاطمة للقفطان',
       name_fr: 'Atelier Fatima Qaftan',
