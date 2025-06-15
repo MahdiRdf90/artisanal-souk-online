@@ -29,7 +29,8 @@ const Artisans = () => {
       reviews: 89,
       products: 15,
       followers: 456,
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop',
+      // صورة طبق كسكسي
+      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=300&fit=crop',
       description: 'متخصص في إعداد المأكولات الجزائرية التقليدية والمعجنات الأصيلة بالطرق التراثية',
       description_fr: 'Spécialisé dans la préparation de plats algériens traditionnels et pâtisseries authentiques',
       established: '2020',
