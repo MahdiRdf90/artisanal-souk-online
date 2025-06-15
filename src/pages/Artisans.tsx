@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -12,6 +13,7 @@ const Artisans = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const location = useLocation();
 
   const artisans = [
     {
@@ -134,7 +136,9 @@ const Artisans = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header
+        currentRoute={location.pathname}
+      />
 
       <div className="bg-sand-beige py-16">
         <div className="container mx-auto px-4 text-center">
@@ -148,18 +152,17 @@ const Artisans = () => {
             اكتشف أمهر الحرفيين الجزائريين وتسوق مباشرة من ورشهم الأصيلة
           </p>
           
-          {/* Tabs للأصناف */}
+          {/* Tabs للأصناف بشكل بارز */}
           <div className="flex justify-center items-center gap-2 md:gap-4 mb-8 flex-wrap">
-            {categories.map((category) => (
+            {categories.map(category => (
               <button
                 key={category}
                 onClick={() => handleCategoryTab(category)}
                 className={
-                  "px-4 py-2 font-arabic rounded-full transition border " +
+                  "px-4 py-2 font-arabic rounded-full transition border text-lg font-bold " +
                   (selectedCategory === (category === 'الكل' ? 'all' : category)
                     ? 'bg-craft-orange text-white border-craft-orange shadow'
-                    : 'bg-white text-heritage-brown border-gray-300 hover:bg-craft-orange/10')
-                }
+                    : 'bg-white text-heritage-brown border-gray-300 hover:bg-craft-orange/10')}
               >
                 {category}
               </button>
@@ -180,16 +183,14 @@ const Artisans = () => {
               </div>
               <select
                 value={selectedRegion}
-                onChange={(e) => setSelectedRegion(e.target.value)}
+                onChange={e => setSelectedRegion(e.target.value)}
                 className="px-4 py-2 border border-input bg-background rounded-md font-arabic"
               >
-                {regions.map((region) => (
-                  <option key={region} value={region === 'الكل' ? 'all' : region}>
-                    {region}
-                  </option>
+                {regions.map(region => (
+                  <option key={region} value={region === 'الكل' ? 'all' : region}>{region}</option>
                 ))}
               </select>
-              {/* أخفينا select التصنيف لأنها أصبحت ضمن الـ tabs */}
+              {/* أخفينا select التصنيف لأنها أصبحت ضمن التبويبات */}
               <div className="hidden md:block"></div>
               <Button className="bg-craft-orange hover:bg-craft-orange/90 font-arabic">
                 <Filter size={18} className="mr-2" />
@@ -207,6 +208,7 @@ const Artisans = () => {
               {filteredArtisans.length} حرفي موجود
             </p>
           </div>
+          {/* يمكن لاحقًا تفعيل الترتيب حسب معايير أخرى */}
           <div className="flex items-center space-x-4">
             <span className="text-sm text-muted-foreground">ترتيب حسب:</span>
             <select className="px-3 py-1 border border-input bg-background rounded font-arabic text-sm">
@@ -219,7 +221,7 @@ const Artisans = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredArtisans.map((artisan) => (
+          {filteredArtisans.map(artisan => (
             <div key={artisan.id}>
               {artisan.id === 'artisan-1' ? (
                 <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer bg-white border-0 shadow-md hover:-translate-y-1 overflow-hidden">
