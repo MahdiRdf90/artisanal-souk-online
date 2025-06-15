@@ -22,7 +22,7 @@ export const products: Product[] = [
     price: 1200,
     unit: 'كيلو',
     image: '/lovable-uploads/f63f5a74-b21f-4527-9797-ee63ccef0ab6.png',
-    category: 'الحرف الغذائية التقليدية',
+    category: 'الصناعات الغذائية التقليدية',
     description_ar: 'حلوى تقليدية جزائرية شهيرة، مصنوعة من أجود المكونات الطبيعية حسب الوصفات التراثية الأصيلة',
     description_fr: 'Pâtisserie traditionnelle algérienne célèbre, fabriquée avec les meilleurs ingrédients naturels selon les recettes ancestrales authentiques',
     available: true,
