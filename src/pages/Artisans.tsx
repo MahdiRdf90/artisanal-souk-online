@@ -136,10 +136,7 @@ const Artisans = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header
-        currentRoute={location.pathname}
-      />
-
+      <Header />
       <div className="bg-sand-beige py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold font-arabic text-heritage-brown mb-4">
