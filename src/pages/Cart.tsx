@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -112,7 +111,7 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={totalItems} />
+      <Header />
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">

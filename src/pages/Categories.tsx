@@ -241,7 +241,7 @@ const Categories = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={3} />
+      <Header />
       
       {/* Breadcrumb */}
       <div className="bg-sand-beige py-4">

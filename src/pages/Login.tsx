@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -15,7 +14,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={0} />
+      <Header />
       
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-md mx-auto">

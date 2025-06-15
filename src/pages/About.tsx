@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={3} />
+      <Header />
       
       <section className="py-20 bg-gradient-to-br from-sand-beige via-warm-beige to-background">
         <div className="container mx-auto px-4">
@@ -43,7 +43,7 @@ const About = () => {
 
                   <div className="prose max-w-none">
                     <p className="text-lg leading-relaxed font-arabic text-heritage-brown mb-6">
-                      نحن Craft Connect، منصة جزائرية مبتكرة تهدف إلى ربط الحرفيين المحليين بالعالم الرقمي. وُلدنا من شغف بحماية التراث الثقافي وتعزيز الصناعة اليدوية الأصيلة، فأنشأنا فضاءً رقميًا يُبرز إبداعات الحرفيين ويمنحهم فرصًا حقيقية للوصول إلى الزبائن داخل الجزائر وخارجها.
+                      نحن Craft Connect، منصة جزائرية مبتكرة تهدف إلى ربط الحرفيين المحليين بالعالم الرقمي. وُلدنا من شغف بحماية التراث الثقافي وتعزيز الصناعة اليدوية الأصيلة، فأنشأنا فضاءً رقميًّا يُبرز إبداعات الحرفيين ويمنحهم فرصًا حقيقية للوصول إلى الزبائن داخل الجزائر وخارجها.
                     </p>
 
                     <p className="text-lg leading-relaxed font-arabic text-heritage-brown mb-6">

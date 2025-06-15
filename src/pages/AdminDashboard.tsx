@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -123,7 +122,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={0} />
+      <Header />
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">

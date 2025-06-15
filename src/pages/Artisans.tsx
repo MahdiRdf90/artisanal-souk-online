@@ -129,7 +129,7 @@ const Artisans = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={3} />
+      <Header />
       
       <div className="bg-sand-beige py-16">
         <div className="container mx-auto px-4 text-center">

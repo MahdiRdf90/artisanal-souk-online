@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={3} />
+      <Header />
       <HeroSection />
       <FeaturedProducts />
       <ProjectsShowcase />

@@ -142,7 +142,7 @@ const VendorDashboard = () => {
   if (showProductForm) {
     return (
       <div className="min-h-screen bg-background">
-        <Header cartItemsCount={0} />
+        <Header />
         <div className="container mx-auto px-4 py-8">
           <ProductForm
             product={editingProduct}
@@ -160,7 +160,7 @@ const VendorDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemsCount={0} />
+      <Header />
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
