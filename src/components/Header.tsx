@@ -1,5 +1,6 @@
+
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -14,6 +15,17 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+
+// قائمة الأصناف للاستخدام في القائمة المنسدلة
+const categories = [
+  'الحلويات التقليدية',
+  'الحرف اليدوية المعتمدة على المواد الطبيعية',
+  'الحرف النسيجية والخياطة',
+  'الحرف الزخرفية والتزيينية',
+  'الحرف المعدنية',
+  'الحرف التجميلية والعطرية',
+  'حرف فنية حديثة أو هجينة'
+];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +43,12 @@ const Header = () => {
 
   const navItems = [
     { href: '/', label: 'الرئيسية', labelFr: 'Accueil' },
-    { href: '/categories', label: 'الأصناف', labelFr: 'Catégories' },
+    // حذف الأصناف من هنا ليتم معالجتها كمكون خاص بالقائمة المنسدلة لاحقًا
     { href: '/shop', label: 'المتجر', labelFr: 'Boutique' },
     { href: '/artisans', label: 'الحرفيون', labelFr: 'Artisans' },
     { href: '/about', label: 'من نحن', labelFr: 'À Propos' }
   ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -58,6 +71,32 @@ const Header = () => {
             </Link>
           ))}
 
+          {/* Dropdown للأصناف */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex flex-col items-center text-sm font-medium relative font-arabic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-craft-orange"
+              >
+                <span>الأصناف</span>
+                <span className="text-xs text-muted-foreground">Catégories</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="z-50 bg-white font-arabic mt-2">
+              {categories.map((category) => (
+                <DropdownMenuItem
+                  key={category}
+                  onClick={() => {
+                    navigate(`/shop?category=${encodeURIComponent(category)}`);
+                  }}
+                  className="cursor-pointer"
+                >
+                  <span className="font-arabic">{category}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           {/* زر Ai craft */}
           <Button
             className="flex items-center gap-2 bg-craft-orange text-white font-arabic px-4 py-2 rounded-md hover:bg-craft-orange/90 transition-colors ml-3"
@@ -71,9 +110,6 @@ const Header = () => {
             Ai craft
           </Button>
         </nav>
-
-        {/* Search Bar - Desktop */}
-        {/* تم تعطيل البحث حسب الطلب */}
 
         {/* Actions */}
         <div className="flex items-center space-x-4 rtl:space-x-reverse">
@@ -112,21 +148,30 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
               <div className="flex flex-col space-y-4 mt-4">
-                {/* Mobile Search */}
-                {/* <form onSubmit={handleSearch} className="flex items-center space-x-2 rtl:space-x-reverse">
-                  <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
-                    <Input type="search" placeholder="ابحث في المنتجات..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10 font-arabic" />
-                  </div>
-                </form> */}
                 {/* Mobile Navigation */}
                 <nav className="flex flex-col space-y-2">
-                  {navItems.map(item => (
-                    <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors">
-                      <span className="font-arabic font-medium">{item.label}</span>
-                      <span className="text-sm text-muted-foreground">{item.labelFr}</span>
-                    </Link>
-                  ))}
+                  {/* روابط العناصر الأخرى */}
+                  <Link key="/" to="/" onClick={() => setIsOpen(false)} className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors">
+                    <span className="font-arabic font-medium">الرئيسية</span>
+                    <span className="text-sm text-muted-foreground">Accueil</span>
+                  </Link>
+                  {/* الأصناف للموبايل (بدون Dropdown في السايد شيت) */}
+                  <Link key="/categories" to="/categories" onClick={() => setIsOpen(false)} className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors">
+                    <span className="font-arabic font-medium">الأصناف</span>
+                    <span className="text-sm text-muted-foreground">Catégories</span>
+                  </Link>
+                  <Link key="/shop" to="/shop" onClick={() => setIsOpen(false)} className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors">
+                    <span className="font-arabic font-medium">المتجر</span>
+                    <span className="text-sm text-muted-foreground">Boutique</span>
+                  </Link>
+                  <Link key="/artisans" to="/artisans" onClick={() => setIsOpen(false)} className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors">
+                    <span className="font-arabic font-medium">الحرفيون</span>
+                    <span className="text-sm text-muted-foreground">Artisans</span>
+                  </Link>
+                  <Link key="/about" to="/about" onClick={() => setIsOpen(false)} className="flex flex-col p-2 rounded-md hover:bg-sand-beige transition-colors">
+                    <span className="font-arabic font-medium">من نحن</span>
+                    <span className="text-sm text-muted-foreground">À Propos</span>
+                  </Link>
                   {/* زر Ai craft للموبايل */}
                   <Button
                     className="flex items-center gap-2 bg-craft-orange text-white font-arabic px-4 py-2 rounded-md hover:bg-craft-orange/90 transition-colors mt-2"
