@@ -57,7 +57,7 @@ const Categories = () => {
           name_ar: 'الحرف الجلدية',
           name_fr: 'Maroquinerie',
           count: 15,
-          image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop&crop=center',
+          image: '/lovable-uploads/8d1a4659-8e4a-484b-b2a5-02b9002daa37.png',
           items: ['صناعة الأحذية التقليدية (البلغة، الصندل...)', 'الحقائب والمحافظ', 'الأحزمة', 'تغليف الكتب بالجلد']
         }
       ]
