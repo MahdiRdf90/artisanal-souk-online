@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -7,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Input } from '@/components/ui/input';
 import { Menu, Search, ShoppingCart, User, Heart, Bell, Sparkles } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import AiCraftModal from "@/components/AiCraftModal";
 
 // استيراد مكونات القائمة المنسدلة
 import {
@@ -30,6 +30,7 @@ const categories = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [aiModalOpen, setAiModalOpen] = useState(false); // state لفتح المودال
   const navigate = useNavigate();
   const { getTotalItems } = useCart();
 
@@ -97,14 +98,11 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* زر Ai craft */}
+          {/* زر Ai craft الجديد */}
           <Button
             className="flex items-center gap-2 bg-craft-orange text-white font-arabic px-4 py-2 rounded-md hover:bg-craft-orange/90 transition-colors ml-3"
             style={{ direction: 'rtl' }}
-            onClick={() => {
-              // يمكنك مستقبلاً ربطه بصفحة الذكاء الاصطناعي أو نافذة خاصة
-              alert('قريبًا ستتمكن من البحث في تاريخ جميع الحرف عن طريق الذكاء الاصطناعي!');
-            }}
+            onClick={() => setAiModalOpen(true)}
           >
             <Sparkles size={18} className="mr-1" />
             Ai craft
@@ -178,7 +176,7 @@ const Header = () => {
                     style={{ direction: 'rtl' }}
                     onClick={() => {
                       setIsOpen(false);
-                      alert('قريبًا ستتمكن من البحث في تاريخ جميع الحرف عن طريق الذكاء الاصطناعي!');
+                      setAiModalOpen(true);
                     }}
                   >
                     <Sparkles size={18} className="mr-1" />
@@ -190,6 +188,8 @@ const Header = () => {
           </Sheet>
         </div>
       </div>
+      {/* مودال الذكاء الاصطناعي */}
+      <AiCraftModal open={aiModalOpen} onClose={() => setAiModalOpen(false)} />
     </header>
   );
 };
