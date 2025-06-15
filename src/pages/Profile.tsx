@@ -4,7 +4,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { User, Package, Heart, Settings, MapPin, Phone, Mail } from 'lucide-react';
+import { User, Package, Heart, Settings, MapPin, Phone, Mail, ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useState } from 'react';
 
 const Profile = () => {
   const user = {
@@ -100,6 +101,16 @@ const Profile = () => {
     }
   };
 
+  // لإدارة انفتاح التفاصيل لكل طلب منفصل
+  const [expandedOrders, setExpandedOrders] = useState<Record<string, boolean>>({});
+
+  const toggleOrderDetails = (orderId: string) => {
+    setExpandedOrders((prev) => ({
+      ...prev,
+      [orderId]: !prev[orderId],
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -161,7 +172,7 @@ const Profile = () => {
                   </h3>
                   {orders.map((order) => (
                     <Card key={order.id}>
-                      <CardContent className="p-6 space-y-4">
+                      <CardContent className="p-6">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
                           <div>
                             <div className="flex items-center space-x-4 rtl:space-x-reverse mb-2">
@@ -178,36 +189,55 @@ const Profile = () => {
                               <p className="font-arabic">عنوان التسليم: {order.address}</p>
                             </div>
                           </div>
-                          <div className="text-right">
+                          <div className="text-right flex flex-col items-end gap-2">
                             <div className="text-lg font-bold text-heritage-brown mb-2">
                               {formatPrice(order.total)} دج
                             </div>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="font-arabic flex items-center gap-1"
+                              onClick={() => toggleOrderDetails(order.id)}
+                            >
+                              {expandedOrders[order.id] ? (
+                                <>
+                                  اخفاء التفاصيل <ChevronUp size={18} />
+                                </>
+                              ) : (
+                                <>
+                                  عرض التفاصيل <ChevronDown size={18} />
+                                </>
+                              )}
+                            </Button>
                           </div>
                         </div>
-                        <div>
-                          <h5 className="font-bold font-arabic text-craft-orange mb-2">تفاصيل المنتجات</h5>
-                          <div className="space-y-2">
-                            {order.products.map((prod, idx) => (
-                              <div key={idx} className="flex flex-col md:flex-row md:items-center md:justify-between bg-sand-beige/40 rounded p-3">
-                                <div className="flex-1">
-                                  <span className="font-arabic text-base text-heritage-brown font-semibold">{prod.name}</span>
-                                  <span className="mx-2 text-sm text-gray-600 font-arabic">({prod.quantity} × {formatPrice(prod.price)} دج)</span>
+                        {/* تفاصيل الطلب فقط إذا تم توسيع الطلب */}
+                        {expandedOrders[order.id] && (
+                          <div className="mt-6">
+                            <h5 className="font-bold font-arabic text-craft-orange mb-2">تفاصيل المنتجات</h5>
+                            <div className="space-y-2">
+                              {order.products.map((prod, idx) => (
+                                <div key={idx} className="flex flex-col md:flex-row md:items-center md:justify-between bg-sand-beige/40 rounded p-3">
+                                  <div className="flex-1">
+                                    <span className="font-arabic text-base text-heritage-brown font-semibold">{prod.name}</span>
+                                    <span className="mx-2 text-sm text-gray-600 font-arabic">({prod.quantity} × {formatPrice(prod.price)} دج)</span>
+                                  </div>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="mt-2 md:mt-0 font-arabic flex-shrink-0"
+                                    onClick={() => {
+                                      const gmQuery = encodeURIComponent(order.city || order.address);
+                                      window.open(`https://www.google.com/maps/search/?api=1&query=${gmQuery}`, "_blank");
+                                    }}
+                                  >
+                                    تحديد الموقع على الخريطة
+                                  </Button>
                                 </div>
-                                <Button
-                                  size="sm"
-                                  variant="outline"
-                                  className="mt-2 md:mt-0 font-arabic flex-shrink-0"
-                                  onClick={() => {
-                                    const gmQuery = encodeURIComponent(order.city || order.address);
-                                    window.open(`https://www.google.com/maps/search/?api=1&query=${gmQuery}`, "_blank");
-                                  }}
-                                >
-                                  تحديد الموقع على الخريطة
-                                </Button>
-                              </div>
-                            ))}
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </CardContent>
                     </Card>
                   ))}
