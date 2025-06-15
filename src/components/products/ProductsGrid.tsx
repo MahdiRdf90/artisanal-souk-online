@@ -10,6 +10,9 @@ interface ProductsGridProps {
 const ProductsGrid = ({ category, limit }: ProductsGridProps) => {
   let filteredProducts = products;
   
+  console.log('All products:', products);
+  console.log('Filtering by category:', category);
+  
   if (category) {
     filteredProducts = products.filter(product => product.category === category);
   }
@@ -17,6 +20,8 @@ const ProductsGrid = ({ category, limit }: ProductsGridProps) => {
   if (limit) {
     filteredProducts = filteredProducts.slice(0, limit);
   }
+
+  console.log('Filtered products:', filteredProducts);
 
   const handleAddToCart = (product: any) => {
     console.log('Adding to cart:', product);
