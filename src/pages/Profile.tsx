@@ -222,17 +222,20 @@ const Profile = () => {
                                     <span className="font-arabic text-base text-heritage-brown font-semibold">{prod.name}</span>
                                     <span className="mx-2 text-sm text-gray-600 font-arabic">({prod.quantity} × {formatPrice(prod.price)} دج)</span>
                                   </div>
-                                  <Button
-                                    size="sm"
-                                    variant="outline"
-                                    className="mt-2 md:mt-0 font-arabic flex-shrink-0"
-                                    onClick={() => {
-                                      const gmQuery = encodeURIComponent(order.city || order.address);
-                                      window.open(`https://www.google.com/maps/search/?api=1&query=${gmQuery}`, "_blank");
-                                    }}
-                                  >
-                                    تحديد الموقع على الخريطة
-                                  </Button>
+                                  {/* زر تحديد الموقع يظهر فقط إذا لم يكن الطلب تم التوصيل */}
+                                  {order.status !== 'delivered' && (
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
+                                      className="mt-2 md:mt-0 font-arabic flex-shrink-0"
+                                      onClick={() => {
+                                        const gmQuery = encodeURIComponent(order.city || order.address);
+                                        window.open(`https://www.google.com/maps/search/?api=1&query=${gmQuery}`, "_blank");
+                                      }}
+                                    >
+                                      تحديد الموقع على الخريطة
+                                    </Button>
+                                  )}
                                 </div>
                               ))}
                             </div>
