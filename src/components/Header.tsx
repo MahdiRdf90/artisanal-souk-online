@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -78,32 +77,17 @@ const Header = () => {
 
         {/* Actions */}
         <div className="flex items-center space-x-4 rtl:space-x-reverse">
-          {/* Cart Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="relative">
-                <ShoppingCart size={20} />
-                {getTotalItems() > 0 && (
-                  <Badge variant="destructive" className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
-                    {getTotalItems()}
-                  </Badge>
-                )}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="mt-2">
-              <DropdownMenuItem asChild>
-                <Link to="/cart" className="font-arabic w-full">
-                  السلة
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/categories" className="font-arabic w-full">
-                  الأصناف
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
+          {/* Cart */}
+          <Link to="/cart">
+            <Button variant="ghost" size="sm" className="relative">
+              <ShoppingCart size={20} />
+              {getTotalItems() > 0 && (
+                <Badge variant="destructive" className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
+                  {getTotalItems()}
+                </Badge>
+              )}
+            </Button>
+          </Link>
           {/* باقي الأزرار تم تعطيلها حسب الطلب */}
           {/* Wishlist */}
           {/* <Button variant="ghost" size="sm" className="hidden md:flex">
@@ -119,7 +103,6 @@ const Header = () => {
               <User size={20} />
             </Button>
           </Link>
-
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -167,4 +150,3 @@ const Header = () => {
 };
 
 export default Header;
-
