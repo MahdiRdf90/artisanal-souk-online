@@ -304,9 +304,11 @@ const Artisans = () => {
                           <Facebook size={16} />
                           <span>زيارة الصفحة</span>
                         </a>
-                        <Button className="w-full bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic">
-                          تصفح المنتجات
-                        </Button>
+                        <a href="/shop/fatima-cook" className="block">
+                          <Button className="w-full bg-craft-orange hover:bg-craft-orange/90 text-white font-arabic">
+                            تصفح المنتجات
+                          </Button>
+                        </a>
                       </div>
                     </div>
                   </CardContent>
