@@ -5,36 +5,10 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
+import { products as allProducts } from "@/data/products";
 
-const products = [
-  {
-    id: "kahlouchi1",
-    name: "كحلوشي",
-    image: "/lovable-uploads/8d1a4659-8e4a-484b-b2a5-02b9002daa37.png",
-    price: 500,
-    unit: "1 كلغ",
-    available: true,
-    description: "حلويات كحلوشي الأصلية من Fatima cook",
-  },
-  {
-    id: "baklawa1",
-    name: "بقلاوة",
-    image: "/lovable-uploads/3b322311-3a2f-49ba-aeb8-7c97e3d74d9e.png",
-    price: 700,
-    unit: "1 كلغ",
-    available: true,
-    description: "بقلاوة جزائرية بالطريقة التقليدية.",
-  },
-  {
-    id: "maqroute1",
-    name: "مقروط",
-    image: "/lovable-uploads/5ee30ec6-0441-4b0d-8c48-a6d12ed463d4.png",
-    price: 400,
-    unit: "1 كلغ",
-    available: true,
-    description: "مقروط التمر مع العسل الطبيعي.",
-  },
-];
+// نجلب المنتجات الخاصة بمتجر Fatima cook عن طريق الحقل shopId
+const fatimaCookProducts = allProducts.filter((p) => p.shopId === 'fatima-cook');
 
 const initialComments = [
   {
@@ -99,18 +73,18 @@ const FatimaCookShop = () => {
 
         <h2 className="text-2xl font-bold mb-6 font-arabic text-craft-orange">منتجات Fatima cook</h2>
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {products.map(product => (
+          {fatimaCookProducts.map(product => (
             <Card key={product.id} className="h-full">
               <CardContent className="p-4 flex flex-col h-full">
                 <img
                   src={product.image}
-                  alt={product.name}
+                  alt={product.name_ar}
                   className="w-full h-40 object-cover rounded mb-3"
                 />
                 <h3 className="text-xl font-arabic font-bold text-heritage-brown mb-1">
-                  {product.name}
+                  {product.name_ar}
                 </h3>
-                <p className="mb-1 text-sm text-muted-foreground font-arabic">{product.description}</p>
+                <p className="mb-1 text-sm text-muted-foreground font-arabic">{product.description_ar}</p>
                 <div className="flex items-center justify-between mt-auto">
                   <span className="text-craft-orange font-bold text-lg">
                     {product.price} دج / {product.unit}

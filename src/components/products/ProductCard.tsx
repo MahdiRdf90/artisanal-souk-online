@@ -17,6 +17,8 @@ interface Product {
   description_ar?: string;
   description_fr?: string;
   available?: boolean;
+  shopId?: string;
+  shopName?: string;
 }
 
 interface ProductCardProps {
@@ -52,10 +54,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
         
         <div className="p-4 flex-grow flex flex-col">
           <div className="flex-grow">
-            <h3 className="text-lg font-bold font-arabic text-heritage-brown mb-2">
+            <h3 className="text-lg font-bold font-arabic text-heritage-brown mb-1">
               {product.name_ar}
             </h3>
             <p className="text-clay-brown text-sm mb-2">{product.name_fr}</p>
+
+            {/* اسم المتجر كرابط */}
+            {product.shopId && product.shopName && (
+              <Link to={`/shop/${product.shopId}`} className="text-xs text-craft-orange hover:underline font-arabic mb-2 block">
+                {product.shopName}
+              </Link>
+            )}
+
             {product.description_ar && (
               <p className="text-muted-foreground text-sm mb-3 line-clamp-2 font-arabic">
                 {product.description_ar}

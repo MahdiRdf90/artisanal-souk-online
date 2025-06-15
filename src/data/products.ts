@@ -12,6 +12,8 @@ export interface Product {
   available: boolean;
   ingredients?: string[];
   origin?: string;
+  shopId?: string; // معرف المتجر
+  shopName?: string; // اسم المتجر للعرض
   artisan?: {
     name: string;
     location: string;
@@ -25,6 +27,7 @@ export interface Product {
   };
 }
 
+// منتجات fatima cook (تم إضافة حقل shopId و shopName)
 export const products: Product[] = [
   {
     id: 'kahlouchi-001',
@@ -39,6 +42,8 @@ export const products: Product[] = [
     available: true,
     ingredients: ['التمر', 'اللوز', 'السمسم', 'العسل', 'جوز الهند'],
     origin: 'الجزائر العاصمة',
+    shopId: 'fatima-cook',
+    shopName: 'Fatima cook',
     artisan: {
       name: 'الحرف الغذائية التقليدية - Artisanat Alimentaire Traditionnel',
       location: 'الجزائر - Alger',
@@ -64,6 +69,8 @@ export const products: Product[] = [
     available: true,
     ingredients: ['السميد', 'التمر', 'اللوز', 'العسل', 'ماء الزهر'],
     origin: 'الجزائر العاصمة',
+    shopId: 'fatima-cook',
+    shopName: 'Fatima cook',
     artisan: {
       name: 'الحرف الغذائية التقليدية - Artisanat Alimentaire Traditionnel',
       location: 'الجزائر - Alger',
@@ -89,6 +96,8 @@ export const products: Product[] = [
     available: true,
     ingredients: ['عجينة الفيلو', 'الجوز', 'اللوز', 'الفستق', 'العسل', 'القطر'],
     origin: 'الجزائر العاصمة',
+    shopId: 'fatima-cook',
+    shopName: 'Fatima cook',
     artisan: {
       name: 'الحرف الغذائية التقليدية - Artisanat Alimentaire Traditionnel',
       location: 'الجزائر - Alger',
@@ -102,3 +111,4 @@ export const products: Product[] = [
     }
   }
 ];
+
