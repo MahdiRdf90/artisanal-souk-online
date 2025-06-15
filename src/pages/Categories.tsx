@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ProductsGrid from '@/components/products/ProductsGrid';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -149,12 +150,20 @@ const Categories = () => {
       image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop&crop=center',
       subcategories: [
         {
-          id: 'traditional-food',
-          name_ar: 'الصناعات الغذائية التقليدية',
-          name_fr: 'Industries Alimentaires Traditionnelles',
+          id: 'traditional-sweets',
+          name_ar: 'الحلويات التقليدية',
+          name_fr: 'Pâtisseries Traditionnelles',
           count: 1,
+          image: '/lovable-uploads/63029d83-c877-4813-a969-ff921d862a76.png',
+          items: ['كحلوشي', 'المقروط', 'البقلاوة', 'الزلابية', 'المعكرون']
+        },
+        {
+          id: 'traditional-food',
+          name_ar: 'المأكولات التقليدية الأخرى',
+          name_fr: 'Autres Aliments Traditionnels',
+          count: 0,
           image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop&crop=center',
-          items: ['كحلوشي', 'صناعة الخبز التقليدي', 'الحلويات اليدوية', 'الجبن التقليدي', 'التوابل المطحونة يدويًا']
+          items: ['صناعة الخبز التقليدي', 'الجبن التقليدي', 'التوابل المطحونة يدويًا', 'المربى والمخللات المنزلية']
         }
       ]
     },
@@ -367,6 +376,13 @@ const Categories = () => {
                                 </Badge>
                               )}
                             </div>
+                          </div>
+                        )}
+
+                        {/* Show products for traditional sweets subcategory */}
+                        {subcategory.id === 'traditional-sweets' && (
+                          <div className="mt-4">
+                            <ProductsGrid category="الحلويات التقليدية" />
                           </div>
                         )}
                       </div>

@@ -14,7 +14,7 @@ const Shop = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const categories = [
-    'الحرف الغذائية التقليدية',
+    'الحلويات التقليدية',
     'الحرف اليدوية المعتمدة على المواد الطبيعية',
     'الحرف النسيجية والخياطة',
     'الحرف الزخرفية والتزيينية',
@@ -128,7 +128,7 @@ const Shop = () => {
             </p>
           </div>
           
-          <ProductsGrid category="الحرف الغذائية التقليدية" limit={1} />
+          <ProductsGrid category="الحلويات التقليدية" limit={1} />
         </div>
       </div>
 
