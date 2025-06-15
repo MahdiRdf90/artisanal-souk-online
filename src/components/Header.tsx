@@ -8,6 +8,14 @@ import { Input } from '@/components/ui/input';
 import { Menu, Search, ShoppingCart, User, Heart, Bell, Sparkles } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 
+// استيراد مكونات القائمة المنسدلة
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -66,34 +74,45 @@ const Header = () => {
         </nav>
 
         {/* Search Bar - Desktop */}
-        <form onSubmit={handleSearch} className="hidden md:flex items-center space-x-2 rtl:space-x-reverse">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
-            <Input type="search" placeholder="ابحث في المنتجات..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10 w-64 font-arabic" />
-          </div>
-        </form>
+        {/* تم تعطيل البحث حسب الطلب */}
 
         {/* Actions */}
         <div className="flex items-center space-x-4 rtl:space-x-reverse">
-          {/* Cart */}
-          <Link to="/cart">
-            <Button variant="ghost" size="sm" className="relative">
-              <ShoppingCart size={20} />
-              {getTotalItems() > 0 && (
-                <Badge variant="destructive" className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
-                  {getTotalItems()}
-                </Badge>
-              )}
-            </Button>
-          </Link>
+          {/* Cart Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="relative">
+                <ShoppingCart size={20} />
+                {getTotalItems() > 0 && (
+                  <Badge variant="destructive" className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
+                    {getTotalItems()}
+                  </Badge>
+                )}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="mt-2">
+              <DropdownMenuItem asChild>
+                <Link to="/cart" className="font-arabic w-full">
+                  السلة
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/categories" className="font-arabic w-full">
+                  الأصناف
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* باقي الأزرار تم تعطيلها حسب الطلب */}
           {/* Wishlist */}
-          <Button variant="ghost" size="sm" className="hidden md:flex">
+          {/* <Button variant="ghost" size="sm" className="hidden md:flex">
             <Heart size={20} />
-          </Button>
+          </Button> */}
           {/* Notifications */}
-          <Button variant="ghost" size="sm" className="hidden md:flex">
+          {/* <Button variant="ghost" size="sm" className="hidden md:flex">
             <Bell size={20} />
-          </Button>
+          </Button> */}
           {/* Profile */}
           <Link to="/profile">
             <Button variant="ghost" size="sm">
@@ -111,12 +130,12 @@ const Header = () => {
             <SheetContent side="right" className="w-80">
               <div className="flex flex-col space-y-4 mt-4">
                 {/* Mobile Search */}
-                <form onSubmit={handleSearch} className="flex items-center space-x-2 rtl:space-x-reverse">
+                {/* <form onSubmit={handleSearch} className="flex items-center space-x-2 rtl:space-x-reverse">
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
                     <Input type="search" placeholder="ابحث في المنتجات..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10 font-arabic" />
                   </div>
-                </form>
+                </form> */}
                 {/* Mobile Navigation */}
                 <nav className="flex flex-col space-y-2">
                   {navItems.map(item => (
@@ -148,3 +167,4 @@ const Header = () => {
 };
 
 export default Header;
+
