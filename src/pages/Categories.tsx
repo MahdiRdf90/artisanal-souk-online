@@ -159,11 +159,43 @@ const Categories = () => {
         },
         {
           id: 'traditional-food',
-          name_ar: 'المأكولات التقليدية الأخرى',
-          name_fr: 'Autres Aliments Traditionnels',
+          name_ar: 'المأكولات التقليدية',
+          name_fr: 'Aliments Traditionnels',
           count: 0,
           image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop&crop=center',
-          items: ['صناعة الخبز التقليدي', 'الجبن التقليدي', 'التوابل المطحونة يدويًا', 'المربى والمخللات المنزلية']
+          items: ['صناعة الخبز التقليدي', 'الكسكس والبرغل', 'المعجنات التقليدية', 'الصلصات والمرق']
+        },
+        {
+          id: 'dairy-products',
+          name_ar: 'الألبان ومشتقاتها',
+          name_fr: 'Produits Laitiers',
+          count: 0,
+          image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=300&h=200&fit=crop&crop=center',
+          items: ['الجبن التقليدي', 'الزبدة البلدية', 'اللبن الرائب', 'الجبن الطازج']
+        },
+        {
+          id: 'grains-legumes',
+          name_ar: 'الحبوب والبقوليات',
+          name_fr: 'Céréales et Légumineuses',
+          count: 0,
+          image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&h=200&fit=crop&crop=center',
+          items: ['القمح المطحون يدوياً', 'الشعير والشوفان', 'العدس والحمص', 'الفول والفاصوليا']
+        },
+        {
+          id: 'honey-herbs',
+          name_ar: 'منتجات العسل والنباتات العطرية',
+          name_fr: 'Miel et Plantes Aromatiques',
+          count: 0,
+          image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=300&h=200&fit=crop&crop=center',
+          items: ['العسل الطبيعي', 'النباتات العطرية المجففة', 'الزيوت العطرية', 'شمع العسل']
+        },
+        {
+          id: 'traditional-spices',
+          name_ar: 'البهارات والتوابل التقليدية',
+          name_fr: 'Épices et Condiments Traditionnels',
+          count: 0,
+          image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center',
+          items: ['خلطات البهارات التقليدية', 'التوابل المطحونة يدوياً', 'الملح البحري', 'الفلفل الحار المجفف']
         }
       ]
     },
