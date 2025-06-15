@@ -24,7 +24,22 @@ const Profile = () => {
       vendor: 'ورشة فاطمة للقفطان',
       items: 2,
       total: 43000,
-      status: 'delivered'
+      status: 'delivered',
+      address: 'حي السلام، الجزائر العاصمة',
+      city: 'الجزائر العاصمة',
+      phone: '+213 555 123 456',
+      products: [
+        {
+          name: 'قفطان تقليدي مطرز بالذهب',
+          quantity: 1,
+          price: 25000,
+        },
+        {
+          name: 'زربية تقليدية',
+          quantity: 1,
+          price: 18000,
+        },
+      ]
     },
     {
       id: 'ORD-002',
@@ -32,7 +47,17 @@ const Profile = () => {
       vendor: 'النحاس الأصيل',
       items: 1,
       total: 8500,
-      status: 'shipped'
+      status: 'shipped',
+      address: 'حي النصر، وهران',
+      city: 'وهران',
+      phone: '+213 556 222 333',
+      products: [
+        {
+          name: 'إبريق نحاسي منقوش',
+          quantity: 1,
+          price: 8500,
+        },
+      ]
     }
   ];
 
@@ -134,11 +159,10 @@ const Profile = () => {
                   <h3 className="text-xl font-bold font-arabic text-heritage-brown">
                     طلباتي ({orders.length})
                   </h3>
-                  
                   {orders.map((order) => (
                     <Card key={order.id}>
-                      <CardContent className="p-6">
-                        <div className="flex items-center justify-between">
+                      <CardContent className="p-6 space-y-4">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
                           <div>
                             <div className="flex items-center space-x-4 rtl:space-x-reverse mb-2">
                               <h4 className="font-bold text-heritage-brown">#{order.id}</h4>
@@ -149,16 +173,39 @@ const Profile = () => {
                             <div className="space-y-1 text-sm text-muted-foreground">
                               <p className="font-arabic">التاريخ: {order.date}</p>
                               <p className="font-arabic">الورشة: {order.vendor}</p>
-                              <p className="font-arabic">{order.items} منتج</p>
+                              <p className="font-arabic">عدد المنتجات: {order.items}</p>
+                              <p className="font-arabic">الهاتف: {order.phone}</p>
+                              <p className="font-arabic">عنوان التسليم: {order.address}</p>
                             </div>
                           </div>
                           <div className="text-right">
                             <div className="text-lg font-bold text-heritage-brown mb-2">
                               {formatPrice(order.total)} دج
                             </div>
-                            <Button variant="outline" size="sm" className="font-arabic">
-                              عرض التفاصيل
-                            </Button>
+                          </div>
+                        </div>
+                        <div>
+                          <h5 className="font-bold font-arabic text-craft-orange mb-2">تفاصيل المنتجات</h5>
+                          <div className="space-y-2">
+                            {order.products.map((prod, idx) => (
+                              <div key={idx} className="flex flex-col md:flex-row md:items-center md:justify-between bg-sand-beige/40 rounded p-3">
+                                <div className="flex-1">
+                                  <span className="font-arabic text-base text-heritage-brown font-semibold">{prod.name}</span>
+                                  <span className="mx-2 text-sm text-gray-600 font-arabic">({prod.quantity} × {formatPrice(prod.price)} دج)</span>
+                                </div>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="mt-2 md:mt-0 font-arabic flex-shrink-0"
+                                  onClick={() => {
+                                    const gmQuery = encodeURIComponent(order.city || order.address);
+                                    window.open(`https://www.google.com/maps/search/?api=1&query=${gmQuery}`, "_blank");
+                                  }}
+                                >
+                                  تحديد الموقع على الخريطة
+                                </Button>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       </CardContent>
