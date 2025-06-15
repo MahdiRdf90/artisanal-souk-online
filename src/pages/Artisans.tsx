@@ -18,8 +18,8 @@ const Artisans = () => {
   const artisans = [
     {
       id: 'artisan-1',
-      name: 'الحرف الغذائية التقليدية',
-      name_fr: 'Artisanat Alimentaire Traditionnel',
+      name: 'Fatima cook',
+      name_fr: 'Fatima Cook',
       owner: 'الحرفي المختص',
       owner_fr: 'Artisan Spécialisé',
       region: 'الجزائر',
