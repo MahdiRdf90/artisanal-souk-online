@@ -84,7 +84,7 @@ const Header = () => {
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-craft-orange flex items-center gap-2 font-arabic">
-          <span>حرفة</span>
+          <span>Craft Connect</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-4">
