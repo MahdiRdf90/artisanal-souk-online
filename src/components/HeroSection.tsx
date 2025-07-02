@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -332,11 +331,11 @@ const HeroSection = () => {
                 <Card className="absolute -bottom-4 -right-4 p-4 bg-white/90 backdrop-blur-sm shadow-xl shadow-heritage-brown/20 animate-float border border-heritage-brown/20 neon-card" style={{animationDelay: '1s'}}>
                   <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 bg-heritage-brown rounded-full flex items-center justify-center shadow-lg shadow-heritage-brown/30">
-                      <span className="text-white font-bold text-lg">👜</span>
+                      <span className="text-white font-bold text-lg">🧵</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-sm font-arabic text-heritage-brown">حرف جلدية</p>
-                      <p className="text-xs text-heritage-brown/60">Maroquinerie</p>
+                      <p className="font-semibold text-sm font-arabic text-heritage-brown">نسيج بربري</p>
+                      <p className="text-xs text-heritage-brown/60">Tissage berbère</p>
                     </div>
                   </div>
                 </Card>
@@ -373,12 +372,12 @@ const HeroSection = () => {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Product cards with authentic pottery and leather craft images */}
+              {/* Product cards with neon effects and light backgrounds */}
               <Link to="/categories" className="group">
                 <Card className="overflow-hidden hover:shadow-2xl hover:shadow-craft-orange/20 transition-all duration-500 group-hover:-translate-y-2 bg-white/80 border border-craft-orange/20 backdrop-blur-sm neon-card">
                   <div className="aspect-square overflow-hidden relative">
                     <img 
-                      src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center" 
+                      src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop&crop=center" 
                       alt="فخار تقليدي"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
@@ -386,7 +385,7 @@ const HeroSection = () => {
                   </div>
                   <div className="p-6">
                     <h4 className="font-bold text-craft-orange mb-2 font-arabic">فخار تقليدي</h4>
-                    <p className="text-sm text-heritage-brown/60 mb-3">أواني طينية أصيلة من التراث</p>
+                    <p className="text-sm text-heritage-brown/60 mb-3">إبداعات من الطين الأصيل</p>
                     <div className="flex items-center justify-between">
                       <span className="text-craft-orange font-bold">من 1,500 دج</span>
                       <ArrowRight className="w-4 h-4 text-craft-orange group-hover:translate-x-1 transition-transform" />
@@ -399,17 +398,17 @@ const HeroSection = () => {
                 <Card className="overflow-hidden hover:shadow-2xl hover:shadow-copper-accent/20 transition-all duration-500 group-hover:-translate-y-2 bg-white/80 border border-copper-accent/20 backdrop-blur-sm neon-card">
                   <div className="aspect-square overflow-hidden relative">
                     <img 
-                      src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop&crop=center" 
-                      alt="حرف جلدية"
+                      src="https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=300&h=300&fit=crop&crop=center" 
+                      alt="نسيج وتطريز"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-copper-accent/10 to-transparent"></div>
                   </div>
                   <div className="p-6">
-                    <h4 className="font-bold text-copper-accent mb-2 font-arabic">حرف جلدية</h4>
-                    <p className="text-sm text-heritage-brown/60 mb-3">حقائب وأحذية من الجلد الطبيعي</p>
+                    <h4 className="font-bold text-copper-accent mb-2 font-arabic">نسيج وتطريز</h4>
+                    <p className="text-sm text-heritage-brown/60 mb-3">قفاطين وزرابي بربرية</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-copper-accent font-bold">من 2,800 دج</span>
+                      <span className="text-copper-accent font-bold">من 3,000 دج</span>
                       <ArrowRight className="w-4 h-4 text-copper-accent group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -420,17 +419,17 @@ const HeroSection = () => {
                 <Card className="overflow-hidden hover:shadow-2xl hover:shadow-heritage-brown/20 transition-all duration-500 group-hover:-translate-y-2 bg-white/80 border border-heritage-brown/20 backdrop-blur-sm neon-card">
                   <div className="aspect-square overflow-hidden relative">
                     <img 
-                      src="https://images.unsplash.com/photo-1587829797736-f6dc8ab4dc13?w=300&h=300&fit=crop&crop=center" 
-                      alt="أواني فخارية"
+                      src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=300&fit=crop&crop=center" 
+                      alt="مجوهرات بربرية"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-heritage-brown/10 to-transparent"></div>
                   </div>
                   <div className="p-6">
-                    <h4 className="font-bold text-heritage-brown mb-2 font-arabic">أواني فخارية</h4>
-                    <p className="text-sm text-heritage-brown/60 mb-3">إبداعات خزفية للمطبخ التقليدي</p>
+                    <h4 className="font-bold text-heritage-brown mb-2 font-arabic">مجوهرات بربرية</h4>
+                    <p className="text-sm text-heritage-brown/60 mb-3">فضة وأحجار طبيعية</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-heritage-brown font-bold">من 2,200 دج</span>
+                      <span className="text-heritage-brown font-bold">من 2,500 دج</span>
                       <ArrowRight className="w-4 h-4 text-heritage-brown group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -441,17 +440,17 @@ const HeroSection = () => {
                 <Card className="overflow-hidden hover:shadow-2xl hover:shadow-craft-orange/20 transition-all duration-500 group-hover:-translate-y-2 bg-white/80 border border-craft-orange/20 backdrop-blur-sm neon-card">
                   <div className="aspect-square overflow-hidden relative">
                     <img 
-                      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop&crop=center" 
-                      alt="صناعة الجلود"
+                      src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop&crop=center" 
+                      alt="حرف النحاس"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-craft-orange/10 to-transparent"></div>
                   </div>
                   <div className="p-6">
-                    <h4 className="font-bold text-craft-orange mb-2 font-arabic">صناعة الجلود</h4>
-                    <p className="text-sm text-heritage-brown/60 mb-3">منتجات جلدية تقليدية فاخرة</p>
+                    <h4 className="font-bold text-craft-orange mb-2 font-arabic">حرف النحاس</h4>
+                    <p className="text-sm text-heritage-brown/60 mb-3">مصابيح وأدوات زينة</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-craft-orange font-bold">من 3,500 دج</span>
+                      <span className="text-craft-orange font-bold">من 1,800 دج</span>
                       <ArrowRight className="w-4 h-4 text-craft-orange group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>

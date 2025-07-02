@@ -5,32 +5,32 @@ import { Card } from '@/components/ui/card';
 const MovingImageGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Array of craft images with descriptions - focused on pottery and leather crafts
+  // Array of craft images with descriptions
   const craftImages = [
     {
-      url: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=600&h=600&fit=crop&crop=center",
+      url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center",
       title: "فخار تقليدي",
       subtitle: "Poterie traditionnelle"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&crop=center",
-      title: "حرف جلدية",
-      subtitle: "Maroquinerie artisanale"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1587829797736-f6dc8ab4dc13?w=600&h=600&fit=crop&crop=center",
-      title: "أواني فخارية",
-      subtitle: "Céramique traditionnelle"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop&crop=center",
-      title: "صناعة الجلود",
-      subtitle: "Artisanat du cuir"
     },
     {
       url: "https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=600&h=600&fit=crop&crop=center",
       title: "نسيج بربري",
       subtitle: "Tissage berbère"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=600&fit=crop&crop=center",
+      title: "مجوهرات تقليدية",
+      subtitle: "Bijoux traditionnels"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=600&fit=crop&crop=center",
+      title: "حرف النحاس",
+      subtitle: "Artisanat du cuivre"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1582582621959-48d27397dc69?w=600&h=600&fit=crop&crop=center",
+      title: "سجاد يدوي",
+      subtitle: "Tapis artisanal"
     }
   ];
 
