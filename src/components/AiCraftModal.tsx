@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -41,7 +40,7 @@ const AiCraftModal: React.FC<AiCraftModalProps> = ({ open, onClose }) => {
     setError(null);
   };
 
-  // يستدعي OpenAI API بدلاً من Perplexity لتجنب مشاكل CORS
+  // يستدعي OpenAI API باستخدام النموذج المحدث
   const handleAsk = async () => {
     if (!question.trim()) return;
     if (!apiKey) {
@@ -61,7 +60,7 @@ const AiCraftModal: React.FC<AiCraftModalProps> = ({ open, onClose }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "gpt-4",
+          model: "gpt-4o-mini", // استخدام النموذج المحدث
           messages: [
             {
               role: "system",
