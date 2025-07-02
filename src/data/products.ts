@@ -1,114 +1,115 @@
 
-export interface Product {
-  id: string;
-  name_ar: string;
-  name_fr: string;
-  price: number;
-  unit: string;
-  image: string;
-  category: string;
-  description_ar: string;
-  description_fr: string;
-  available: boolean;
-  ingredients?: string[];
-  origin?: string;
-  shopId?: string; // معرف المتجر
-  shopName?: string; // اسم المتجر للعرض
-  artisan?: {
-    name: string;
-    location: string;
-    rating: number;
-    reviews: number;
-    specialty: string;
-    products_count: number;
-    followers: number;
-    established: string;
-    description: string;
-  };
-}
-
-// منتجات fatima cook (تم إضافة حقل shopId و shopName)
-export const products: Product[] = [
+export const products = [
   {
-    id: 'kahlouchi-001',
-    name_ar: 'كحلوشي',
-    name_fr: 'Kahlouchi',
-    price: 1200,
-    unit: '1 كلغ',
-    image: '/lovable-uploads/63029d83-c877-4813-a969-ff921d862a76.png',
-    category: 'الحلويات التقليدية',
-    description_ar: 'حلوى تقليدية جزائرية شهيرة، مصنوعة من أجود المكونات الطبيعية حسب الوصفات التراثية الأصيلة',
-    description_fr: 'Pâtisserie traditionnelle algérienne célèbre, fabriquée avec les meilleurs ingrédients naturels selon les recettes ancestrales authentiques',
-    available: true,
-    ingredients: ['التمر', 'اللوز', 'السمسم', 'العسل', 'جوز الهند'],
-    origin: 'الجزائر العاصمة',
-    shopId: 'fatima-cook',
-    shopName: 'Fatima cook',
-    artisan: {
-      name: 'الحرف الغذائية التقليدية - Artisanat Alimentaire Traditionnel',
-      location: 'الجزائر - Alger',
-      rating: 4.9,
-      reviews: 89,
-      specialty: 'حرف غذائية',
-      products_count: 15,
-      followers: 456,
-      established: '2020',
-      description: 'متخصص في إعداد المأكولات الجزائرية التقليدية والمعجنات الأصيلة بالطرق التراثية'
-    }
-  },
-  {
-    id: 'maqrout-001',
-    name_ar: 'المقروط',
-    name_fr: 'Maqrout',
+    id: '1',
+    name_ar: 'كحلوشي تقليدي',
+    name_fr: 'Qahlouche Traditionnel',
     price: 1500,
-    unit: '1 كلغ',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center',
+    unit: 'كيلو',
+    image: '/lovable-uploads/3b322311-3a2f-49ba-aeb8-7c97e3d74d9e.png',
     category: 'الحلويات التقليدية',
-    description_ar: 'حلوى تقليدية جزائرية مميزة محشوة بالتمر والمكسرات، مصنوعة بالطريقة التراثية الأصيلة',
-    description_fr: 'Pâtisserie traditionnelle algérienne distinctive farcie de dattes et de noix, préparée selon la méthode ancestrale authentique',
+    description_ar: 'حلوى جزائرية تقليدية مصنوعة من العسل والسميد واللوز',
+    description_fr: 'Pâtisserie algérienne traditionnelle au miel, semoule et amandes',
     available: true,
-    ingredients: ['السميد', 'التمر', 'اللوز', 'العسل', 'ماء الزهر'],
-    origin: 'الجزائر العاصمة',
-    shopId: 'fatima-cook',
-    shopName: 'Fatima cook',
-    artisan: {
-      name: 'الحرف الغذائية التقليدية - Artisanat Alimentaire Traditionnel',
-      location: 'الجزائر - Alger',
-      rating: 4.9,
-      reviews: 89,
-      specialty: 'حرف غذائية',
-      products_count: 15,
-      followers: 456,
-      established: '2020',
-      description: 'متخصص في إعداد المأكولات الجزائرية التقليدية والمعجنات الأصيلة بالطرق التراثية'
-    }
+    shopId: 'fatima-cook-shop',
+    shopName: 'ورشة فاطمة للطبخ'
   },
   {
-    id: 'baklawa-001',
-    name_ar: 'البقلاوة',
-    name_fr: 'Baklawa',
-    price: 1800,
-    unit: '1 كلغ',
-    image: 'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400&h=300&fit=crop&crop=center',
+    id: '2',
+    name_ar: 'مقروض باللوز',
+    name_fr: 'Makroudh aux Amandes',
+    price: 1200,
+    unit: 'كيلو',
+    image: '/lovable-uploads/4da720f7-b770-4338-9b8d-5f8dfb0680e1.png',
     category: 'الحلويات التقليدية',
-    description_ar: 'حلوى شرقية فاخرة مصنوعة من طبقات رقيقة من العجين محشوة بالمكسرات والمحلاة بالعسل',
-    description_fr: 'Pâtisserie orientale luxueuse faite de fines couches de pâte farcies de noix et sucrées au miel',
+    description_ar: 'مقروض محشو باللوز المطحون والعسل',
+    description_fr: 'Makroudh fourré aux amandes moulues et miel',
     available: true,
-    ingredients: ['عجينة الفيلو', 'الجوز', 'اللوز', 'الفستق', 'العسل', 'القطر'],
-    origin: 'الجزائر العاصمة',
-    shopId: 'fatima-cook',
-    shopName: 'Fatima cook',
-    artisan: {
-      name: 'الحرف الغذائية التقليدية - Artisanat Alimentaire Traditionnel',
-      location: 'الجزائر - Alger',
-      rating: 4.9,
-      reviews: 89,
-      specialty: 'حرف غذائية',
-      products_count: 15,
-      followers: 456,
-      established: '2020',
-      description: 'متخصص في إعداد المأكولات الجزائرية التقليدية والمعجنات الأصيلة بالطرق التراثية'
-    }
+    shopId: 'fatima-cook-shop',
+    shopName: 'ورشة فاطمة للطبخ'
+  },
+  {
+    id: '3',
+    name_ar: 'تشاراك أمازيغي',
+    name_fr: 'Tapis Berbère Traditionnel',
+    price: 12000,
+    unit: 'قطعة',
+    image: '/lovable-uploads/5ee30ec6-0441-4b0d-8c48-a6d12ed463d4.png',
+    category: 'الحرف اليدوية المعتمدة على المواد الطبيعية',
+    description_ar: 'سجادة أمازيغية منسوجة يدوياً بألوان طبيعية',
+    description_fr: 'Tapis berbère tissé à la main avec des couleurs naturelles',
+    available: true
+  },
+  {
+    id: '4',
+    name_ar: 'زربية تقليدية للمدخل',
+    name_fr: 'Tapis Traditionnel d\'Entrée',
+    price: 8500,
+    unit: 'قطعة',
+    image: '/lovable-uploads/b16fb7c6-6c75-4c83-a51d-0a501e28fc97.png',
+    category: 'الحرف اليدوية المعتمدة على المواد الطبيعية',
+    description_ar: 'زربية تقليدية بتصميم هندسي أنيق، مثالية لتزيين مدخل المنزل',
+    description_fr: 'Tapis traditionnel au design géométrique élégant, parfait pour décorer l\'entrée de la maison',
+    available: true
+  },
+  {
+    id: '5',
+    name_ar: 'فخار أمازيغي',
+    name_fr: 'Poterie Berbère',
+    price: 3500,
+    unit: 'قطعة',
+    image: '/lovable-uploads/6e3b0490-1395-4245-9409-26cdfaddcc1b.png',
+    category: 'الحرف اليدوية المعتمدة على المواد الطبيعية',
+    description_ar: 'إناء فخاري تقليدي مصنوع يدوياً بتقنيات أمازيغية قديمة',
+    description_fr: 'Poterie traditionnelle faite à la main avec des techniques berbères anciennes',
+    available: true
+  },
+  {
+    id: '6',
+    name_ar: 'قفة من الحلفاء',
+    name_fr: 'Panier en Alfa',
+    price: 2500,
+    unit: 'قطعة',
+    image: '/lovable-uploads/8d1a4659-8e4a-484b-b2a5-02b9002daa37.png',
+    category: 'الحرف اليدوية المعتمدة على المواد الطبيعية',
+    description_ar: 'سلة تقليدية مصنوعة من نبات الحلفاء الطبيعي',
+    description_fr: 'Panier traditionnel fait en alfa naturel',
+    available: true
+  },
+  {
+    id: '7',
+    name_ar: 'حقيبة جلدية تقليدية',
+    name_fr: 'Sac en Cuir Traditionnel',
+    price: 4500,
+    unit: 'قطعة',
+    image: '/lovable-uploads/f63f5a74-b21f-4527-9797-ee63ccef0ab6.png',
+    category: 'الحرف النسيجية والخياطة',
+    description_ar: 'حقيبة من الجلد الطبيعي مصنوعة بتقنيات تقليدية',
+    description_fr: 'Sac en cuir naturel fait avec des techniques traditionnelles',
+    available: true
+  },
+  {
+    id: '8',
+    name_ar: 'إبريق نحاسي',
+    name_fr: 'Théière en Cuivre',
+    price: 6500,
+    unit: 'قطعة',
+    image: '/lovable-uploads/d236cb59-dae9-4202-9d60-cb1c5c62a59d.png',
+    category: 'الحرف المعدنية',
+    description_ar: 'إبريق شاي نحاسي مزين بنقوش تقليدية',
+    description_fr: 'Théière en cuivre décorée de motifs traditionnels',
+    available: true
+  },
+  {
+    id: '9',
+    name_ar: 'طبق خزفي مزخرف',
+    name_fr: 'Assiette en Céramique Décorée',
+    price: 2800,
+    unit: 'قطعة',
+    image: '/lovable-uploads/63029d83-c877-4813-a969-ff921d862a76.png',
+    category: 'الحرف الزخرفية والتزيينية',
+    description_ar: 'طبق خزفي مزين بزخارف هندسية تقليدية',
+    description_fr: 'Assiette en céramique décorée de motifs géométriques traditionnels',
+    available: true
   }
 ];
-
